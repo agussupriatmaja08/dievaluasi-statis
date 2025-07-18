@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diEvaluasi</title>
+
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        pre code {
+            display: block;
+            padding: 0.5rem;
+            overflow-x: auto;
+        }
+
+        /* Sembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Sembunyikan scrollbar untuk IE, Edge dan Firefox */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-800">
+  <header
+    class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full">
+    <div class="container mx-auto flex items-center justify-between py-2 px-6">
+        <a href="/">
+            <img src="/assets/logo-CVa9SbQq.png" alt="logo" class="h-15 w-auto ml-16">
+        </a>
+
+        <div class="flex-1 flex justify-center">
+            <nav class="hidden md:flex space-x-6 text-gray-800">
+                <a href="/" class="hover:text-orange-500">Beranda</a>
+                <a href="/#promo" onclick="scrollToSection('promo', false, event)" class="hover:text-orange-500">Our Promo</a>
+                <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
+                <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
+                <a href="/#faq" onclick="scrollToSection('faq', false, event)" class="hover:text-orange-500">FAQ</a>
+            </nav>
+        </div>
+
+        <a href="/login.html"
+            class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16">
+            Login →
+        </a>
+
+        <button id="menu-btn" class="block md:hidden text-gray-800 focus:outline-none ml-auto">
+            <svg id="hamburger-icon" class="w-8 h-8 transition-transform duration-300"
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+
+            <svg id="close-icon" class="w-8 h-8 hidden transition-transform duration-300"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+    </div>
+</header>
+
+<div id="mobile-menu"
+    class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40">
+    <div class="flex flex-col items-start py-8 space-y-1">
+        <a href="/" onclick="scrollToSection('beranda', true, event)"
+            class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Beranda</a>
+        <a href="/#promo" onclick="scrollToSection('promo', true, event)"
+            class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Our Promo</a>
+        <a href="/tryout.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Tryout</a>
+        <a href="/privat.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Les Privat</a>
+        <a href="/#faq" onclick="scrollToSection('faq', true, event)"
+            class="block py-2 text-gray-800 hover:text-orange-500 pl-8">FAQ</a>
+
+        <a href="/login.html"
+            class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"> Login
+        </a>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    menuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+            mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+            hamburgerIcon.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
+        } else {
+            mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    });
+
+    // Tutup menu jika klik di luar menu
+    window.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add("-translate-y-full");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    });
+
+    function scrollToSection(id, isMobile = false, event = null) {
+        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+        const section = document.getElementById(id);
+        if (section) {
+            // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
+            const offset = (isMobile ? 60 : 80); // Contoh: 60px untuk mobile, 80px untuk desktop
+            const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+
+            // Tutup menu mobile jika sedang dibuka
+            if (isMobile) {
+                mobileMenu.classList.add("-translate-y-full");
+                hamburgerIcon.classList.remove("hidden");
+                closeIcon.classList.add("hidden");
+            }
+        }
+    }
+</script>
+
+    <section id="beranda" class="bg-[#ECF4F9] py-0 px-2 md:px-6 lg:px-8 -mt-2">
+        <div class="container mx-auto">
+
+            <div class="flex flex-col items-start md:hidden">
+                <h1 class="text-3xl font-bold text-gray-800 leading-tight mt-8 mx-5">
+                    Siapkan <span class="text-blue-600">Dirimu Dan Taklukkan</span> Masa Depan
+                </h1>
+                <h1
+                    class="text-md font-bold text-gray-800 mt-2 border-2 border-amber-500 rounded-md px-3 py-1 inline-block mx-5">
+                    Dievaluasi Raih Mimpi
+                </h1>
+                <p class="text-gray-500 mt-2 text-sm mx-5">
+                    Tingkatkan kemampuan, uji ketangguhan, dan capai potensi terbaikmu. Semua dimulai dari satu langkah:
+                    berani mencoba.
+                </p>
+                <a href="#" onclick="scrollToSection('promo', true, event)"
+                    class="mt-4 bg-orange-500 text-lg text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mx-5">
+                    Lihat Promo
+                </a>
+
+                <div class="w-full flex justify-center mt-5 px-4 md:hidden">
+                    <img src="/assets/hero-A56ftZlG.png" alt="Hero Image"
+                        class="w-full h-[280px] object-cover">
+                </div>
+            </div>
+
+            <div class="hidden md:flex flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left ml-15 mb-0 md:mb-0">
+                    <h1 class="text-5xl font-bold text-gray-800 leading-tight">
+                        Siapkan <span class="text-blue-600">Dirimu Dan Taklukkan</span> Masa Depan
+                    </h1>
+                    <h1
+                        class="text-xl font-bold text-gray-800 leading-tight mt-2 border-2 border-amber-500 rounded-md px-2 py-1 inline-block">
+                        Dievaluasi Raih Mimpi
+                    </h1>
+                    <p class="text-gray-500 mt-2 max-w-lg">
+                        Tingkatkan kemampuan, uji ketangguhan, dan capai potensi terbaikmu. Semua dimulai dari satu
+                        langkah: berani mencoba.
+                    </p>
+                    <a href="#"
+                        class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300">
+                        Lihat Promo
+                    </a>
+                </div>
+
+                <div class="md:w-2xl flex justify-center md:justify-end m-5">
+                    <img src="/assets/hero-A56ftZlG.png" alt="Hero Image"
+                        class="w-full max-w-2xl rounded-lg transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-white mb-10 px-2 mt-10 md:px-8 md:mx-16" data-aos="fade-up">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl sm:text-xl font-bold text-gray-900">
+                Mengapa Harus <span class="text-orange-500">Memilih diEvaluasi?</span>
+            </h2>
+            <p class="text-gray-400 mt-2 max-w-2xl mx-auto">
+                Karena kami tidak hanya menguji, kami membantu Anda bertumbuh. diEvaluasi memberikan analisis tajam
+                untuk mengungkap kekuatan dan area perbaikan Anda, memastikan setiap langkah persiapan jadi lebih
+                efektif dan terarah menuju hasil terbaik.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto px-4" data-aos="fade-up">
+            <div
+                class="border-2 border-orange-400 rounded-tl-2xl rounded-br-2xl p-6 text-center shadow-sm transition-transform duration-300 hover:scale-105">
+                <div class="bg-orange-100 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAA5CAYAAACBBvPCAAAAAXNSR0IArs4c6QAAAuxJREFUaAXtWu1t4zAMzQg3QheorREygjdoNugK2cCR2/+5DTJCRugIGSEj8EBKcmRFX4nV4u7wChhNJIsUH8nHonibDX6AABAoIUCj+kWjUjSqHeluT1N/pKk/0dSfI89R3hnVls+VbPO+tT/QR/deaXugB+zX3GF+h0b1IoFykLq/0NTTiudMn93bbNx+kICn150F73n7uv8SwD67N7536KfquyCpu0ODYFOBXBwI9PE60LQa1LQfTtqottnA54Cn/vpwZrkiDOq30q+pEnMmdXEi3V9tAm52ub1qbN9XKFftEggTtJRL+hLOkCsrrd7lXEVpzfxgOKHsQ4IT+8WytfywJb6P7n7bBNT4uNCohk225CSj3YFfrCWsXHkJf6RBOBfLM2fc7s2EacDIcdSVg18iJQGrfYuLpO4qWVr6PabeXbsulZfgrzD4y1pnNeftiLyBrrt9zbm174SJRvAeIsj82vIqnUfZ+4SHni/Vy/p9r72FbEF4HiIgvPUFlrcAwgPh2T+twfb5Vmmx63Eb2B6jzisHjLoW/ZWzgVGHUYdRR9wGuTZptedxG0YdRp1XDhh1rXosZQejDqMOow6jLsUPLdc9Ysecx5z3ygFzvmWfxWxhzv+rc96qH1iOZiRjN0kay9LMw2ssJzMysYXEpJR5qwCL2xahwWybFSMqVl2xNa+969le1A1OF/ecGIidOUHQSyx4ASmhoAgvHf1u9EInB/jTwUtmTbAsLnxcneWXdPxzqJX5Dh9s88SSN6fJC0ELRx0fYNmXlMV/9vsurjD4ctBLORr3HCs0o9JSK0MbrEwszHbcl2jvRAG2S9n2OMfJ0A7PJK0m+DNpo85KBRnrr9ia0esm1JZGBXYnTY3Zya1Z7mBN8F2mw0rm4GP9xpo4Rj6a0Zzz0p5kzQiV/cyfvsmX0w0zd/n+WN15YZXzMEtHjbKyecAxQMgxu1Y/889LJ6A2bdtE8BiLC2tAAAgAASAABP4iBP4AEBOFkcngc8YAAAAASUVORK5CYII=" alt="Materi Terbaru">
+                </div>
+
+                <h3 class="text-lg font-semibold text-gray-800">Belajar Fleksibel</h3>
+                <p class="text-gray-500 mt-2">Atur sendiri ritme belajarmu. Akses semua materi kapan saja dan di mana
+                    saja, baik lewat laptop maupun ponsel.
+                </p>
+            </div>
+
+            <div
+                class="border-2 border-orange-400 rounded-tr-2xl rounded-bl-2xl p-6 text-center shadow-sm transition-transform duration-300 hover:scale-105">
+                <div class="bg-orange-100 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
+
+                    <img src="data:image/png;base64,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" alt="Try Out Sepuasnya">
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800">Dosen Bersertifikat</B></h3>
+                <p class="text-gray-500 mt-2">Belajar langsung dari ahlinya. Semua materi dan pembahasan dirancang oleh
+                    para pakar untuk hasil terbaik Anda.
+                </p>
+            </div>
+
+            <div
+                class="border-2 border-orange-400 rounded-tl-2xl rounded-br-2xl p-6 text-center shadow-sm transition-transform duration-300 hover:scale-105">
+                <div class="bg-orange-100 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
+                    <img src="data:image/png;base64,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" alt="Dosen Bersertifikat">
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800">Try Out Sepuasnya</h3>
+                <p class="text-gray-500 mt-2">Asah kemampuan dan mental Anda dengan simulasi ujian yang dapat diulang
+                    hingga anda benar-benar siap untuk ujian.
+                </p>
+            </div>
+
+            <div
+                class="border-2 border-orange-400 rounded-tr-2xl rounded-bl-2xl p-6 text-center shadow-sm transition-transform duration-300 hover:scale-105">
+                <div class="bg-orange-100 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
+                    <img src="data:image/png;base64,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" alt="Soal Terverifikasi">
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800">Soal Terverifikasi</h3>
+                <p class="text-gray-500 mt-2">Berlatih dengan penuh percaya diri. Setiap soal telah divalidasi ketat
+                    untuk terjamin dengan kisi-kisi terbaru.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-blue-50 py-12 px-6 md:px-12 flex flex-col md:flex-row items-center justify-center"
+        data-aos="fade-right">
+
+        <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0 md:ml-16">
+            <h1 class="text-2xl md:text-5xl font-bold text-gray-900 leading-snug">
+                Raih Kesempatan Gemilang Untuk <span class="text-orange-500">Menjadi Yang Terbaik</span>
+            </h1>
+
+            <p class="text-base md:text-lg text-gray-500 mb-6 max-w-lg mx-auto md:mx-0">
+                Kesuksesan tidak datang dari kebetulan, melainkan dari persiapan yang terukur. Kami menyediakan platform
+                dan analisis terbaik agar Anda dapat mengungguli persaingan dan meraih hasil yang paling gemilang.
+            </p>
+
+            <div class="flex justify-center md:hidden mb-6 pl-10">
+                <img src="/assets/girl1-BYhVO1fY.png" alt="Student"
+                    class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-lg transition-transform duration-300 hover:scale-105">
+            </div>
+
+            <a href="/login.html"
+                class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-full shadow-md hover:bg-orange-600 transition duration-300">
+                Join Now
+            </a>
+        </div>
+
+        <div class="md:w-1/2 hidden md:flex justify-end" data-aos="fade-left">
+            <img src="/assets/girl1-BYhVO1fY.png" alt="Student"
+                class="w-full max-w-md lg:max-w-lg h-auto object-contain rounded-lg transition-transform duration-300 hover:scale-105">
+        </div>
+    </section>
+
+    <section id="dosen" class="scroll-margin-top:100px bg-white py-12 px-4 md:px-8 text-center md:mx-16"
+        data-aos="fade-up">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            Diverifikasi Oleh <span class="text-orange-500">Dosen Bersertifikat</span>
+        </h1>
+        <p class="text-gray-500 mb-12 max-w-xl mx-auto">
+            Untuk menjamin kualitas tertinggi, setiap soal dan materi di platform kami disusun dan melewati proses
+            verifikasi ketat oleh tim ahli akademis dari berbagai universitas ternama.
+        </p>
+
+        <div class="swiper-container overflow-hidden max-w-full">
+            <div class="swiper-wrapper my-5">
+                <div class="swiper-slide">
+                    <div class="text-center bg-white shadow-lg rounded-2xl p-6">
+                        <img src="/assets/meta-BnY7JFMp.png" alt="Miss Meta"
+                            class="mx-auto w-60 h-60 object-cover mb-4">
+                        <h3 class="font-bold text-gray-800">Miss Meta</h3>
+                        <p class="text-orange-500 mb-2">Udayana University</p>
+                        <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="text-center bg-white shadow-lg rounded-2xl p-6">
+                        <img src="/assets/deepseek-CkhofyZf.png" alt="Mr Deepsek"
+                            class="mx-auto w-60 h-60 object-cover mb-4">
+                        <h3 class="font-bold text-gray-800">Mr Deepsek</h3>
+                        <p class="text-orange-500 mb-2">Stanford University</p>
+                        <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="text-center bg-white shadow-lg rounded-2xl p-6">
+                        <img src="/assets/sasa-CTWNUZ00.png" alt="Miss Sasa"
+                            class="mx-auto w-60 h-60 object-cover mb-4">
+                        <h3 class="font-bold text-gray-800">Miss Sasa</h3>
+                        <p class="text-orange-500 mb-2">Harvard University</p>
+                        <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="text-center bg-white shadow-lg rounded-2xl p-6">
+                        <img src="/assets/gpt-BS2R3_sC.png" alt="Miss Nana"
+                            class="mx-auto w-60 h-60 object-cover mb-4">
+                        <h3 class="font-bold text-gray-800">Mr GPT</h3>
+                        <p class="text-orange-500 mb-2">Indonesia University</p>
+                        <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1.2, // Mobile: Menampilkan 3 card dengan samping setengah
+            spaceBetween: 10,
+            loop: true, // Infinite loop
+            centeredSlides: true, // Hanya untuk mobile
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 4, // Desktop: Tampilkan 4 card penuh tanpa efek centering
+                    spaceBetween: 30,
+                    centeredSlides: false, // Nonaktifkan centering di desktop agar card tidak terpotong
+                }
+            }
+        });
+    </script>
+
+    <section id="paket" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between mb-10">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h1 class="text-2xl md:text-5xl font-bold text-gray-800 leading-snug">
+                        Berbagai Solusi Belajar <br />
+                        <span class="text-orange-500">Terbaik Untukmu</span>
+                    </h1>
+                    <p class="text-gray-500 mt-4 max-w-md">
+                        Temukan jalur sukses yang paling tepat untuk Anda. Jelajahi berbagai pilihan program kami yang
+                        dirancang fleksibel untuk membantu Anda belajar lebih efektif dan mencapai skor impian.
+                    </p>
+                </div>
+                <div class="lg:w-1/2 mb-8 lg:mb-0">
+                    <img src="/assets/2girl-Onm2fM1T.png" alt="Learning"
+                        class="w-full max-w-md mx-auto" />
+                </div>
+            </div>
+
+            <div class="relative w-full">
+                <div class="flex justify-between items-center mb-4 px-4">
+                    <button id="prevBtn"
+                        class="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-full shadow transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="nextBtn"
+                        class="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-full shadow transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="cardWrapper" class="flex overflow-x-auto hide-scrollbar space-x-6 scroll-smooth px-4 pb-4">
+                    <div
+                        class="group snap-start first:ml-4 last:mr-4 min-w-[20rem] max-w-xs flex flex-col bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="relative">
+                            <img class="w-full h-40 object-cover"
+                                src="/assets/utbk-jBIPElSV.jpg" alt="Tryout UTBK" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <h2 class="absolute bottom-4 left-4 text-xl font-bold text-white">Tryout UTBK SNBT</h2>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mb-3 px-2.5 py-0.5 rounded-full self-start">
+                                SNBT
+                            </span>
+                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                                Latihan soal UTBK SNBT komprehensif untuk persiapan masuk PTN.
+                            </p>
+                            <div class="space-y-3 text-sm text-gray-700 mb-6">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                    <span>5 Set Soal</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18" />
+                                    </svg>
+                                    <span>Masa Berlaku 12 Bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Durasi Test CAT 180 Menit</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="text-xs text-gray-500">Harga</p>
+                                        <p class="text-xl font-bold text-gray-900">Rp85.000</p>
+                                    </div>
+                                    <a href="/paket-detail-utbk.html"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group snap-start first:ml-4 last:mr-4 min-w-[20rem] max-w-xs flex flex-col bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="relative">
+                            <img class="w-full h-40 object-cover"
+                                src="/assets/skd-WeTsok9Y.jpg" alt="Tryout SKD" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <h2 class="absolute bottom-4 left-4 text-xl font-bold text-white">Tryout SKD CPNS</h2>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="inline-block bg-green-100 text-green-800 text-xs font-semibold mb-3 px-2.5 py-0.5 rounded-full self-start">
+                                CPNS
+                            </span>
+                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                                Simulasi lengkap Seleksi Kompetensi Dasar (SKD) untuk CPNS.
+                            </p>
+                            <div class="space-y-3 text-sm text-gray-700 mb-6">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                    <span>3 Set Soal</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18" />
+                                    </svg>
+                                    <span>Masa Berlaku 6 Bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Durasi Test CAT 150 Menit</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="text-xs text-gray-500">Harga</p>
+                                        <p class="text-xl font-bold text-gray-900">Rp75.000</p>
+                                    </div>
+                                    <a href="/paket-detail-skd.html"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group snap-start first:ml-4 last:mr-4 min-w-[20rem] max-w-xs flex flex-col bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="relative">
+                            <img class="w-full h-40 object-cover"
+                                src="/assets/mandiri-BuO2fqSX.jpg" alt="Tryout Mandiri" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <h2 class="absolute bottom-4 left-4 text-xl font-bold text-white">Tryout Seleksi Mandiri</h2>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mb-3 px-2.5 py-0.5 rounded-full self-start">
+                                Mandiri
+                            </span>
+                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                                Latihan intensif untuk seleksi masuk perguruan tinggi jalur mandiri.
+                            </p>
+                            <div class="space-y-3 text-sm text-gray-700 mb-6">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                    <span>2 Set Soal</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18" />
+                                    </svg>
+                                    <span>Masa Berlaku 3 Bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Durasi Test CAT 120 Menit</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="text-xs text-gray-500">Harga</p>
+                                        <p class="text-xl font-bold text-gray-900">Rp60.000</p>
+                                    </div>
+                                    <a href="/paket-detail-mandiri.html"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                   
+                </div>
+            </div>
+
+            <script>
+                const cardWrapper = document.getElementById('cardWrapper');
+                const nextBtn = document.getElementById('nextBtn');
+                const prevBtn = document.getElementById('prevBtn');
+                const scrollAmount = 320; // Adjust depending on card width + gap
+
+                nextBtn.addEventListener('click', () => {
+                    cardWrapper.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    cardWrapper.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            </script>
+
+        </div>
+    </section>
+
+    <section id="promo" class="bg-[#e8f0f7] py-16 px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:data-aos-fade-up">
+            Paket Test Bundling <span class="text-orange-500">Yang Ramah Dikantong</span>
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-xl mx-auto">
+            Dapatkan lebih banyak sesi latihan dengan biaya yang jauh lebih hemat. Kami telah menyusun paket bundling
+            terbaik untuk memberikan Anda akses ke berbagai tes sekaligus.
+        </p>
+
+        <div class="hidden md:grid mx-auto max-w-6xl grid-cols-3 gap-8">
+            <div class="relative rounded-xl p-6 shadow-lg text-left bg-gradient-to-b from-white to-orange-100 h-auto mt-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                data-aos="fade-right">
+                <span
+                    class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
+                    Hemat 20%
+                </span>
+                <div class="mb-4">
+                    <p class="text-gray-500 text-base">Layanan</p>
+                    <h3 class="text-blue-700 text-3xl font-bold">Paket Ultimate</h3>
+                </div>
+                <div class="mb-6">
+                    <p class="text-gray-500 text-lg line-through">Rp 250.000</p>
+                    <p class="text-blue-600 text-5xl font-extrabold">Rp 200.000</p>
+                </div>
+                <p>Ini adalah deskripsi paket Ultimate. Nikmati akses penuh ke semua tryout kami.</p>
+                <div class="mt-4 text-gray-700 text-sm mb-6">
+                    <p class="font-semibold mb-2">Tersedia paket-paket:</p>
+                    <ul class="list-none p-0 m-0 space-y-1">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Tryout UTBK Reguler
+                        </li>
+
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Tryout CPNS Premium
+                        </li>
+                    </ul>
+                </div>
+                <p class="text-gray-500 text-sm text-center mb-6">Dapat diakses: 12 bulan</p>
+                <a href="/paket-kombo-utbk-skd.html"
+                    class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                    Detail Paket
+                </a>
+            </div>
+
+            <div class="relative rounded-xl p-6 shadow-lg text-left bg-gradient-to-b from-white to-orange-100 h-auto mt-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                data-aos="fade-right" data-aos-delay="100">
+                <span
+                    class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
+                    Hemat 15%
+                </span>
+                <div class="mb-4">
+                    <p class="text-gray-500 text-base">Layanan</p>
+                    <h3 class="text-blue-700 text-3xl font-bold">Paket Pro</h3>
+                </div>
+                <div class="mb-6">
+                    <p class="text-gray-500 text-lg line-through">Rp 150.000</p>
+                    <p class="text-blue-600 text-5xl font-extrabold">Rp 127.500</p>
+                </div>
+                <p>Ini adalah deskripsi paket Pro. Cocok untuk persiapan ujian menengah.</p>
+                <div class="mt-4 text-gray-700 text-sm mb-6">
+                    <p class="font-semibold mb-2">Tersedia paket-paket:</p>
+                    <ul class="list-none p-0 m-0 space-y-1">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Tryout UTBK Reguler
+                        </li>
+                    </ul>
+                </div>
+                <p class="text-gray-500 text-sm text-center mb-6">Dapat diakses: 6 bulan</p>
+                <a href="/paket-kombo-utbk-skd.html"
+                    class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                    Detail Paket
+                </a>
+            </div>
+
+            <div class="relative rounded-xl p-6 shadow-lg text-left bg-gradient-to-b from-white to-orange-100 h-auto mt-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                data-aos="fade-right" data-aos-delay="200">
+                <span
+                    class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
+                    Hemat 10%
+                </span>
+                <div class="mb-4">
+                    <p class="text-gray-500 text-base">Layanan</p>
+                    <h3 class="text-blue-700 text-3xl font-bold">Paket Basic</h3>
+                </div>
+                <div class="mb-6">
+                    <p class="text-gray-500 text-lg line-through">Rp 100.000</p>
+                    <p class="text-blue-600 text-5xl font-extrabold">Rp 90.000</p>
+                </div>
+                <p>Ini adalah deskripsi paket Basic. Cocok untuk pemula yang ingin mencoba.</p>
+                <div class="mt-4 text-gray-700 text-sm mb-6">
+                    <p class="font-semibold mb-2">Tersedia paket-paket:</p>
+                    <ul class="list-none p-0 m-0 space-y-1">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Tryout UTBK Reguler (1x)
+                        </li>
+                    </ul>
+                </div>
+                <p class="text-gray-500 text-sm text-center mb-6">Dapat diakses: 3 bulan</p>
+                <a href="/paket-kombo-utbk-skd.html"
+                    class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                    Detail Paket
+                </a>
+            </div>
+        </div>
+
+        <div class="md:hidden relative">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide px-4">
+                        <div
+                            class="relative rounded-xl p-6 shadow-lg bg-gradient-to-b from-white to-orange-100 h-auto flex flex-col">
+                            <span
+                                class="absolute top-4 right-4 bg-orange-500 text-white text-sm px-3 py-1 rounded font-semibold">
+                                Hemat 20%
+                            </span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-2">
+                                Layanan <span class="text-orange-500">Paket Ultimate</span>
+                            </h3>
+                            <p class="text-base text-gray-400 line-through">Rp 250.000</p>
+                            <p class="text-3xl font-bold text-gray-900 mb-4">Rp 200.000</p>
+                            <div class="mb-6 text-base text-left text-gray-700 space-y-2">
+                                <p class="font-semibold">Tersedia paket-paket:</p>
+                                <p><span class="text-green-500">✅</span> Tryout UTBK Reguler</p>
+                                <p><span class="text-green-500">✅</span> Tryout CPNS Premium</p>
+                            </div>
+                            <p class="text-sm text-gray-500 text-center mb-6">Dapat diakses: 12 bulan</p>
+                            <a href="/lihat-detail-paket-hemat/ultimate"
+                                class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                                Detail Paket
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide px-4">
+                        <div
+                            class="relative rounded-xl p-6 shadow-lg bg-gradient-to-b from-white to-orange-100 h-auto flex flex-col">
+                            <span
+                                class="absolute top-4 right-4 bg-orange-500 text-white text-sm px-3 py-1 rounded font-semibold">
+                                Hemat 15%
+                            </span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-2">
+                                Layanan <span class="text-orange-500">Paket Pro</span>
+                            </h3>
+                            <p class="text-base text-gray-400 line-through">Rp 150.000</p>
+                            <p class="text-3xl font-bold text-gray-900 mb-4">Rp 127.500</p>
+                            <div class="mb-6 text-base text-left text-gray-700 space-y-2">
+                                <p class="font-semibold">Tersedia paket-paket:</p>
+                                <p><span class="text-green-500">✅</span> Tryout UTBK Reguler</p>
+                            </div>
+                            <p class="text-sm text-gray-500 text-center mb-6">Dapat diakses: 6 bulan</p>
+                            <a href="/lihat-detail-paket-hemat/pro"
+                                class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                                Detail Paket
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide px-4">
+                        <div
+                            class="relative rounded-xl p-6 shadow-lg bg-gradient-to-b from-white to-orange-100 h-auto flex flex-col">
+                            <span
+                                class="absolute top-4 right-4 bg-orange-500 text-white text-sm px-3 py-1 rounded font-semibold">
+                                Hemat 10%
+                            </span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-2">
+                                Layanan <span class="text-orange-500">Paket Basic</span>
+                            </h3>
+                            <p class="text-base text-gray-400 line-through">Rp 100.000</p>
+                            <p class="text-3xl font-bold text-gray-900 mb-4">Rp 90.000</p>
+                            <div class="mb-6 text-base text-left text-gray-700 space-y-2">
+                                <p class="font-semibold">Tersedia paket-paket:</p>
+                                <p><span class="text-green-500">✅</span> Tryout UTBK Reguler (1x)</p>
+                            </div>
+                            <p class="text-sm text-gray-500 text-center mb-6">Dapat diakses: 3 bulan</p>
+                            <a href="/lihat-detail-paket-hemat/basic"
+                                class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                                Detail Paket
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-prev absolute top-1/2 left-0 -translate-y-1/2 text-gray-600"></div>
+            <div class="swiper-button-next absolute top-1/2 right-0 -translate-y-1/2 text-gray-600"></div>
+        </div>
+
+    </section>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1.2,
+            centeredSlides: true,
+            initialSlide: 1, // Card 2 sebagai default
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            }
+        });
+    </script>
+
+    <section class="relative w-full overflow-visible my-20 mx-auto max-w-7xl md:rounded-[30px]">
+        <div class="absolute inset-0 overflow-hidden md:rounded-[30px]">
+            <img src="/assets/bgdetail-DiRQjQj1.png" alt="Background"
+                class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/30 md:rounded-[30px]"></div>
+        </div>
+
+        <div
+            class="relative z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 text-white space-y-16 md:space-y-0">
+
+            <div class="w-full md:w-1/3 text-center md:text-left">
+                <h3 class="text-orange-400 font-bold text-lg mb-2">Masih Bingung Dengan Layanan Kami?</h3>
+                <p class="text-white text-sm mb-4 max-w-sm mx-auto md:mx-0">
+                    Tanyakan apa saja seputar layanan kami kepada asisten AI yang siap
+                    menjawab semua pertanyaan Anda 24/7.
+                </p>
+                <button onclick="toggleChatbot()"
+                    class="bg-orange-400 hover:bg-orange-500 text-white font-semibold py-2 px-6 rounded-full text-sm">
+                    Tanya AI
+                </button>
+            </div>
+
+            <div
+                class="w-full md:w-auto flex justify-center relative md:absolute md:top-[-60px] md:left-1/2 md:transform md:-translate-x-1/2 z-20">
+                <img src="/assets/cewelap-DqvQj2XZ.png" alt="Character" class="w-36 md:w-48 object-contain" />
+            </div>
+
+            <div class="w-full md:w-1/3 text-center md:text-right">
+                <h3 class="text-white font-bold text-xl leading-snug">
+                    Ayo Belajar Dengan Kami <br />
+                    Sekarang !
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="scroll-margin-top: 100px py-16 bg-gray-50">
+        <div class="container mx-auto flex flex-col lg:flex-row items-start gap-12 px-4 lg:px-8">
+            <div class="lg:w-[40%] flex justify-center lg:justify-start md:data-aos-fade-left">
+                <img src="/assets/faq-WZsQcqHp.png" alt="Maskot"
+                    class="w-130 ml-15h-auto drop-shadow-lg mx-auto lg:mx-0">
+            </div>
+
+            <div class="lg:w-[60%] lg:data-aos-fade-left">
+                <div class="text-center lg:text-left mb-6 ">
+                    <h2 class="text-3xl font-bold text-gray-900">
+                        Frequentely Ask <span class="text-orange-500">Questions</span>
+                    </h2>
+                    <p class="text-gray-600 mt-2 text-center md:text-left px-6 md:px-0">
+                        Punya pertanyaan? Kami siap membantu. Temukan jawaban cepat untuk pertanyaan umum seputar
+                        platform, paket, dan fitur diEvaluasi di bawah ini.
+                    </p>
+                </div>
+
+                <div class="space-y-4 px-4 md:px-0 w-full">
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah Soal Test Dengan Kurikulum Terbaru?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Tentu saja. Tim ahli kami secara rutin memperbarui bank soal dan materi untuk memastikan
+                            semuanya selaras dengan kurikulum dan standar ujian nasional terkini, termasuk format soal
+                            HOTS (Higher Order Thinking Skills).
+                        </div>
+                    </details>
+
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah Ada Pembahasan Lengkap?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Ya, setiap soal disertai dengan pembahasan lengkap yang detail dan mudah dipahami.
+                            Pembahasan kami tidak hanya memberikan jawaban yang benar, tetapi juga menjelaskan konsep
+                            dasar dan strategi pengerjaannya.
+                        </div>
+                    </details>
+
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Berapa Lama Akses Soal Test?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Masa aktif setiap paket bervariasi, umumnya mulai dari 1 bulan, 6 bulan, hingga 1 tahun.
+                            Anda dapat melihat detail masa aktif pada setiap pilihan paket sebelum melakukan pembelian.
+                        </div>
+                    </details>
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Metode pembayaran apa saja yang tersedia?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Kami menerima berbagai metode pembayaran yang mudah dan aman, termasuk transfer bank
+                            (Virtual Account), e-wallet (GoPay, OVO, Dana, ShopeePay), dan kartu kredit/debit.
+                        </div>
+                    </details>
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah platform ini bisa diakses di handphone?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Tentu. Platform diEvaluasi sepenuhnya responsif. Anda bisa mengakses semua fitur,
+                            mengerjakan tes, dan melihat pembahasan dengan nyaman melalui browser di komputer, tablet,
+                            maupun handphone Anda.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden md:block relative bg-white pb-32 mt-15">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4 md:px-8" data-aos="fade-right">
+            <div class="md:w-1/2 mb-8 md:mb-0 ml-15">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Tunggu Apalagi? Ayoo Daftar Sekarang <br class="hidden md:block" />
+                    Dan Jadilah Yang Terbaik
+                </h2>
+                <p class="text-gray-600 mb-6">
+                    Ribuan pesaing Anda mungkin sudah mulai berlatih sekarang. Jangan tunda lagi kesempatan Anda untuk
+                    mendapatkan keunggulan. Ambil langkah pertama menuju kesuksesan Anda hari ini!
+                </p>
+                <button onclick="scrollToSection('promo', false, event)"
+                    class="bg-orange-500 text-white py-3 px-6 rounded-full hover:bg-orange-600 transition">
+                    Pilih Paket Test Sekarang!
+                </button>
+            </div>
+
+            <div class="md:w-1/2 flex justify-end" data-aos="fade-left">
+                <img src="/assets/girl2-BoEkX0ZW.png" alt="Student"
+                    class="max-w-130 h-auto drop-shadow-lg mr-15" />
+            </div>
+        </div>
+
+        <div class="container mx-auto relative z-20 drop-shadow-2xl mt-5" data-aos="fade-up">
+            <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-50">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                            Ingin Belajar dan Meningkatkan <br class="hidden md:block" />
+                            <span class="text-orange-500">Skill Bahasa Inggris?</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            Ikuti juga kelas bahasa inggris dari diEvaluasi sekarang
+                        </p>
+                    </div>
+                    <div>
+                        <button class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition">
+                            Lihat Informasi Course
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block md:hidden bg-white pb-16">
+        <div class="container mx-auto flex flex-col items-center px-4" data-aos="fade-up">
+
+            <div class="text-center mt-3">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                    Daftar Sekarang <br />
+                    & Jadilah yang Terbaik!
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    Tingkatkan kemampuanmu dengan kursus terbaik dari diEvaluasi.
+                </p>
+                <div class="w-full flex justify-center">
+                    <img src="/assets/student-Dqf5qjFO.png" alt="Student"
+                        class="max-w-xs h-auto drop-shadow-lg" />
+                </div>
+                <button class="bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition mt-10">
+                    Pilih Paket Test
+                </button>
+            </div>
+
+            <div class="container mx-auto mt-6 relative z-20 drop-shadow-2xl px-4 items-center">
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-36 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">
+                        Upgrade <span class="text-orange-500">Skill Bahasa Inggris</span> Kamu!
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Ikuti kelas eksklusif dari diEvaluasi sekarang.
+                    </p>
+                    <button
+                        class="bg-blue-600 text-white py-2 px-5 mt-3 rounded-full hover:bg-blue-700 transition mx-auto">
+                        Lihat Course
+                    </button>
+                </div>
+            </div>
+
+    </section>
+
+</body>
+
+<script>
+    AOS.init({
+        duration: 800, // Durasi animasi (ms)
+        once: true // Animasi muncul sekali saja
+    });
+</script>
+
+</html>
