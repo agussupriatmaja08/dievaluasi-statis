@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> <style>
         .animate-bounce {
             animation: bounce 1s infinite;
         }
@@ -53,114 +51,114 @@
 </head>
 
 <body class="bg-white text-gray-800">
-  <header
-    class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full">
-    <div class="container mx-auto flex items-center justify-between py-2 px-6">
-        <a href="/">
-            <img src="./dist/assets/static/images/eval/logo.png" alt="logo" class="h-15 w-auto ml-16">
-        </a>
+    <header
+        class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full">
+        <div class="container mx-auto flex items-center justify-between py-2 px-6">
+            <a href="/dievaluasi-statis/">
+                <img src="./dist/assets/static/images/eval/logo.png" alt="logo" class="h-15 w-auto ml-16">
+            </a>
 
-        <div class="flex-1 flex justify-center">
-            <nav class="hidden md:flex space-x-6 text-gray-800">
-                <a href="/" class="hover:text-orange-500">Beranda</a>
-                <a href="/#promo" onclick="scrollToSection('promo', false, event)" class="hover:text-orange-500">Our Promo</a>
-                <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
-                <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
-                <a href="/#faq" onclick="scrollToSection('faq', false, event)" class="hover:text-orange-500">FAQ</a>
-            </nav>
+            <div class="flex-1 flex justify-center">
+                <nav class="hidden md:flex space-x-6 text-gray-800">
+                    <a href="/dievaluasi-statis/" class="hover:text-orange-500">Beranda</a>
+                    <a href="/dievaluasi-statis/index.html#promo" class="hover:text-orange-500">Our Promo</a>
+                    <a href="/dievaluasi-statis/tryout.html" class="hover:text-orange-500">Tryout</a>
+                    <a href="/dievaluasi-statis/privat.html" class="hover:text-orange-500">Les Privat</a>
+                    <a href="/dievaluasi-statis/index.html#faq" class="hover:text-orange-500">FAQ</a>
+                </nav>
+            </div>
+
+            <a href="/dievaluasi-statis/login.html"
+                class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16">
+                Login →
+            </a>
+
+            <button id="menu-btn" class="block md:hidden text-gray-800 focus:outline-none ml-auto">
+                <svg id="hamburger-icon" class="w-8 h-8 transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+
+                <svg id="close-icon" class="w-8 h-8 hidden transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
         </div>
+    </header>
 
-        <a href="/login.html"
-            class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16">
-            Login →
-        </a>
+    <div id="mobile-menu"
+        class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40">
+        <div class="flex flex-col items-start py-8 space-y-1">
+            <a href="/dievaluasi-statis/" onclick="scrollToSection('beranda', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Beranda</a>
+            <a href="/dievaluasi-statis/index.html#promo" onclick="scrollToSection('promo', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Our Promo</a>
+            <a href="/dievaluasi-statis/tryout.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Tryout</a>
+            <a href="/dievaluasi-statis/privat.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Les Privat</a>
+            <a href="/dievaluasi-statis/index.html#faq" onclick="scrollToSection('faq', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">FAQ</a>
 
-        <button id="menu-btn" class="block md:hidden text-gray-800 focus:outline-none ml-auto">
-            <svg id="hamburger-icon" class="w-8 h-8 transition-transform duration-300"
-                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-            </svg>
-
-            <svg id="close-icon" class="w-8 h-8 hidden transition-transform duration-300"
-                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-
+            <a href="/dievaluasi-statis/login.html"
+                class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"> Login
+            </a>
+        </div>
     </div>
-</header>
 
-<div id="mobile-menu"
-    class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40">
-    <div class="flex flex-col items-start py-8 space-y-1">
-        <a href="/" onclick="scrollToSection('beranda', true, event)"
-            class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Beranda</a>
-        <a href="/#promo" onclick="scrollToSection('promo', true, event)"
-            class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Our Promo</a>
-        <a href="/tryout.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Tryout</a>
-        <a href="/privat.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Les Privat</a>
-        <a href="/#faq" onclick="scrollToSection('faq', true, event)"
-            class="block py-2 text-gray-800 hover:text-orange-500 pl-8">FAQ</a>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const closeIcon = document.getElementById("close-icon");
 
-        <a href="/login.html"
-            class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"> Login
-        </a>
-    </div>
-</div>
+        menuBtn.addEventListener("click", () => {
+            if (mobileMenu.classList.contains("-translate-y-full")) {
+                mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+                hamburgerIcon.classList.add("hidden");
+                closeIcon.classList.remove("hidden");
+            } else {
+                mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+                hamburgerIcon.classList.remove("hidden");
+                closeIcon.classList.add("hidden");
+            }
+        });
 
-<script>
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const closeIcon = document.getElementById("close-icon");
-
-    menuBtn.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("-translate-y-full")) {
-            mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
-            hamburgerIcon.classList.add("hidden");
-            closeIcon.classList.remove("hidden");
-        } else {
-            mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
-            hamburgerIcon.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
-        }
-    });
-
-    // Tutup menu jika klik di luar menu
-    window.addEventListener("click", (e) => {
-        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-            mobileMenu.classList.add("-translate-y-full");
-            hamburgerIcon.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
-        }
-    });
-
-    function scrollToSection(id, isMobile = false, event = null) {
-        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
-
-        const section = document.getElementById(id);
-        if (section) {
-            // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
-            const offset = (isMobile ? 60 : 80); // Contoh: 60px untuk mobile, 80px untuk desktop
-            const elementPosition = section.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth",
-            });
-
-            // Tutup menu mobile jika sedang dibuka
-            if (isMobile) {
+        // Tutup menu jika klik di luar menu
+        window.addEventListener("click", (e) => {
+            if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                 mobileMenu.classList.add("-translate-y-full");
                 hamburgerIcon.classList.remove("hidden");
                 closeIcon.classList.add("hidden");
             }
+        });
+
+        function scrollToSection(id, isMobile = false, event = null) {
+            if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+            const section = document.getElementById(id);
+            if (section) {
+                // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
+                const offset = (isMobile ? 60 : 80); // Contoh: 60px untuk mobile, 80px untuk desktop
+                const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
+
+                // Tutup menu mobile jika sedang dibuka
+                if (isMobile) {
+                    mobileMenu.classList.add("-translate-y-full");
+                    hamburgerIcon.classList.remove("hidden");
+                    closeIcon.classList.add("hidden");
+                }
+            }
         }
-    }
-</script>
+    </script>
 
     <section id="beranda" class="bg-[#ECF4F9] py-0 px-2 md:px-6 lg:px-8 -mt-2">
         <div class="container mx-auto">
@@ -177,7 +175,7 @@
                     Tingkatkan kemampuan, uji ketangguhan, dan capai potensi terbaikmu. Semua dimulai dari satu langkah:
                     berani mencoba.
                 </p>
-                <a href="#" onclick="scrollToSection('promo', true, event)"
+                <a href="/dievaluasi-statis/index.html#promo" onclick="scrollToSection('promo', true, event)"
                     class="mt-4 bg-orange-500 text-lg text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mx-5">
                     Lihat Promo
                 </a>
@@ -201,7 +199,7 @@
                         Tingkatkan kemampuan, uji ketangguhan, dan capai potensi terbaikmu. Semua dimulai dari satu
                         langkah: berani mencoba.
                     </p>
-                    <a href="#"
+                    <a href="/dievaluasi-statis/index.html#promo"
                         class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300">
                         Lihat Promo
                     </a>
@@ -280,7 +278,7 @@
     <section class="bg-blue-50 py-12 px-6 md:px-12 flex flex-col md:flex-row items-center justify-center"
         data-aos="fade-right">
 
-        <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0 md:ml-16">
+        <div class="md:w-1/2 text-center md:text-left ml-15 mb-8 md:mb-0 md:ml-16">
             <h1 class="text-2xl md:text-5xl font-bold text-gray-900 leading-snug">
                 Raih Kesempatan Gemilang Untuk <span class="text-orange-500">Menjadi Yang Terbaik</span>
             </h1>
@@ -295,7 +293,7 @@
                     class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-lg transition-transform duration-300 hover:scale-105">
             </div>
 
-            <a href="/login.html"
+            <a href="/dievaluasi-statis/login.html"
                 class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-full shadow-md hover:bg-orange-600 transition duration-300">
                 Join Now
             </a>
@@ -348,7 +346,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="text-center bg-white shadow-lg rounded-2xl p-6">
-                        <img src="./dist/assets/static/images/eval/gpt.png" alt="Miss Nana"
+                        <img src="./dist/assets/static/images/eval/gpt.png" alt="Mr GPT"
                             class="mx-auto w-60 h-60 object-cover mb-4">
                         <h3 class="font-bold text-gray-800">Mr GPT</h3>
                         <p class="text-orange-500 mb-2">Indonesia University</p>
@@ -477,7 +475,7 @@
                                         <p class="text-xs text-gray-500">Harga</p>
                                         <p class="text-xl font-bold text-gray-900">Rp85.000</p>
                                     </div>
-                                    <a href="/paket-detail-utbk.html"
+                                    <a href="/dievaluasi-statis/detail-tryout-utbk.html"
                                         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
                                         Lihat Detail
                                     </a>
@@ -535,7 +533,7 @@
                                         <p class="text-xs text-gray-500">Harga</p>
                                         <p class="text-xl font-bold text-gray-900">Rp75.000</p>
                                     </div>
-                                    <a href="/paket-detail-skd.html"
+                                    <a href="/dievaluasi-statis/detail-tryout-skd.html"
                                         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
                                         Lihat Detail
                                     </a>
@@ -593,7 +591,7 @@
                                         <p class="text-xs text-gray-500">Harga</p>
                                         <p class="text-xl font-bold text-gray-900">Rp60.000</p>
                                     </div>
-                                    <a href="/paket-detail-mandiri.html"
+                                    <a href="/dievaluasi-statis/detail-tryout-mandiri.html"
                                         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
                                         Lihat Detail
                                     </a>
@@ -601,486 +599,124 @@
                             </div>
                         </div>
                     </div>
-                
 
-                   
+                    <div
+                        class="group snap-start first:ml-4 last:mr-4 min-w-[20rem] max-w-xs flex flex-col bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="relative">
+                            <img class="w-full h-40 object-cover"
+                                src="./dist/assets/static/images/eval/bumn.png" alt="Tryout BUMN" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <h2 class="absolute bottom-4 left-4 text-xl font-bold text-white">Tryout BUMN</h2>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="inline-block bg-orange-100 text-orange-800 text-xs font-semibold mb-3 px-2.5 py-0.5 rounded-full self-start">
+                                BUMN
+                            </span>
+                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                                Persiapan seleksi masuk perusahaan BUMN dengan soal-soal relevan.
+                            </p>
+                            <div class="space-y-3 text-sm text-gray-700 mb-6">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                    <span>3 Set Soal</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18" />
+                                    </svg>
+                                    <span>Masa Berlaku 6 Bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Durasi Test CAT 120 Menit</span>
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="text-xs text-gray-500">Harga</p>
+                                        <p class="text-xl font-bold text-gray-900">Rp90.000</p>
+                                    </div>
+                                    <a href="/dievaluasi-statis/detail-tryout-bumn.html"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <script>
-                const cardWrapper = document.getElementById('cardWrapper');
-                const nextBtn = document.getElementById('nextBtn');
-                const prevBtn = document.getElementById('prevBtn');
-                const scrollAmount = 320; // Adjust depending on card width + gap
-
-                nextBtn.addEventListener('click', () => {
-                    cardWrapper.scrollBy({
-                        left: scrollAmount,
-                        behavior: 'smooth'
+                // JavaScript untuk SweetAlert2 (tetap ada jika Anda menggunakannya di tempat lain)
+                function showModalAlert(message, title = "Peringatan", type = "info") {
+                    Swal.fire({
+                        title: title,
+                        text: message,
+                        icon: type, // 'success', 'error', 'warning', 'info'
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        toast: false,
                     });
-                });
+                }
 
-                prevBtn.addEventListener('click', () => {
-                    cardWrapper.scrollBy({
-                        left: -scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
+                // Bagian JavaScript untuk diskon dan checkout di COMMENT OUT karena memerlukan backend.
+                // document.addEventListener('DOMContentLoaded', function () {
+                //     const promoInput = document.getElementById('promo_code');
+                //     const referralInput = document.getElementById('referral_code');
+                //     const checkBtn = document.getElementById('check-discount-btn');
+
+                //     // Fungsi ini TIDAK AKAN BEKERJA tanpa backend
+                //     function performDiscountCheck() {
+                //         const promoCode = promoInput.value;
+                //         const referralCode = referralInput.value;
+                //         const originalPrice = 59000; // Harga statis untuk demo ini
+                //         const csrfToken = ''; // Tidak ada CSRF token di HTML statis
+
+                //         checkBtn.textContent = 'Mengecek...';
+                //         checkBtn.disabled = true;
+
+                //         // Anda akan membutuhkan server backend untuk ini
+                //         // fetch('/check-discounts', { ... })
+                //         // Untuk demo statis, kita hanya akan set nilai statis
+                //         setTimeout(() => {
+                //             let discountAmount = 0;
+                //             if (promoCode === 'DISKON10') { // Contoh kode promo dummy
+                //                 discountAmount = 5900; // 10% dari 59000
+                //                 showModalAlert('Kode promo berhasil diterapkan!', 'Berhasil', 'success');
+                //             } else if (referralCode === 'REFERRALSAKTI') { // Contoh kode referral dummy
+                //                 discountAmount = 3000;
+                //                 showModalAlert('Kode referral berhasil diterapkan!', 'Berhasil', 'success');
+                //             } else if (promoCode || referralCode) {
+                //                 showModalAlert('Kode tidak valid atau tidak ada diskon.', 'Gagal', 'error');
+                //             }
+
+                //             const finalPrice = originalPrice - discountAmount;
+                //             document.getElementById('discount-display').textContent = `- Rp ${discountAmount.toLocaleString('id-ID')}`;
+                //             document.getElementById('total-price-display').textContent = `Rp ${finalPrice.toLocaleString('id-ID')}`;
+
+                //             checkBtn.textContent = 'Terapkan Kode (Tidak Aktif)';
+                //             checkBtn.disabled = false;
+                //         }, 1000);
+                //     }
+
+                //     // checkBtn.addEventListener('click', performDiscountCheck);
+                // });
             </script>
-
         </div>
-    </section>
-
-    <section id="promo" class="bg-[#e8f0f7] py-16 px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:data-aos-fade-up">
-            Paket Test Bundling <span class="text-orange-500">Yang Ramah Dikantong</span>
-        </h2>
-        <p class="text-gray-500 mb-12 max-w-xl mx-auto">
-            Dapatkan lebih banyak sesi latihan dengan biaya yang jauh lebih hemat. Kami telah menyusun paket bundling
-            terbaik untuk memberikan Anda akses ke berbagai tes sekaligus.
-        </p>
-
-        <div class="hidden md:grid mx-auto max-w-6xl grid-cols-3 gap-8">
-            <div class="relative rounded-xl p-6 shadow-lg text-left bg-gradient-to-b from-white to-orange-100 h-auto mt-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-                data-aos="fade-right">
-                <span
-                    class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
-                    Hemat 20%
-                </span>
-                <div class="mb-4">
-                    <p class="text-gray-500 text-base">Layanan</p>
-                    <h3 class="text-blue-700 text-3xl font-bold">Paket Ultimate</h3>
-                </div>
-                <div class="mb-6">
-                    <p class="text-gray-500 text-lg line-through">Rp 250.000</p>
-                    <p class="text-blue-600 text-5xl font-extrabold">Rp 200.000</p>
-                </div>
-                <p>Ini adalah deskripsi paket Ultimate. Nikmati akses penuh ke semua tryout kami.</p>
-                <div class="mt-4 text-gray-700 text-sm mb-6">
-                    <p class="font-semibold mb-2">Tersedia paket-paket:</p>
-                    <ul class="list-none p-0 m-0 space-y-1">
-                        <li class="flex items-center">
-                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Tryout UTBK Reguler
-                        </li>
-
-                        <li class="flex items-center">
-                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Tryout CPNS Premium
-                        </li>
-                    </ul>
-                </div>
-                <p class="text-gray-500 text-sm text-center mb-6">Dapat diakses: 12 bulan</p>
-                <a href="/paket-kombo-utbk-skd.html"
-                    class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-                    Detail Paket
-                </a>
-            </div>
-
-            <div class="relative rounded-xl p-6 shadow-lg text-left bg-gradient-to-b from-white to-orange-100 h-auto mt-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-                data-aos="fade-right" data-aos-delay="100">
-                <span
-                    class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
-                    Hemat 15%
-                </span>
-                <div class="mb-4">
-                    <p class="text-gray-500 text-base">Layanan</p>
-                    <h3 class="text-blue-700 text-3xl font-bold">Paket Pro</h3>
-                </div>
-                <div class="mb-6">
-                    <p class="text-gray-500 text-lg line-through">Rp 150.000</p>
-                    <p class="text-blue-600 text-5xl font-extrabold">Rp 127.500</p>
-                </div>
-                <p>Ini adalah deskripsi paket Pro. Cocok untuk persiapan ujian menengah.</p>
-                <div class="mt-4 text-gray-700 text-sm mb-6">
-                    <p class="font-semibold mb-2">Tersedia paket-paket:</p>
-                    <ul class="list-none p-0 m-0 space-y-1">
-                        <li class="flex items-center">
-                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Tryout UTBK Reguler
-                        </li>
-                    </ul>
-                </div>
-                <p class="text-gray-500 text-sm text-center mb-6">Dapat diakses: 6 bulan</p>
-                <a href="/paket-kombo-utbk-skd.html"
-                    class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-                    Detail Paket
-                </a>
-            </div>
-
-            <div class="relative rounded-xl p-6 shadow-lg text-left bg-gradient-to-b from-white to-orange-100 h-auto mt-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-                data-aos="fade-right" data-aos-delay="200">
-                <span
-                    class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
-                    Hemat 10%
-                </span>
-                <div class="mb-4">
-                    <p class="text-gray-500 text-base">Layanan</p>
-                    <h3 class="text-blue-700 text-3xl font-bold">Paket Basic</h3>
-                </div>
-                <div class="mb-6">
-                    <p class="text-gray-500 text-lg line-through">Rp 100.000</p>
-                    <p class="text-blue-600 text-5xl font-extrabold">Rp 90.000</p>
-                </div>
-                <p>Ini adalah deskripsi paket Basic. Cocok untuk pemula yang ingin mencoba.</p>
-                <div class="mt-4 text-gray-700 text-sm mb-6">
-                    <p class="font-semibold mb-2">Tersedia paket-paket:</p>
-                    <ul class="list-none p-0 m-0 space-y-1">
-                        <li class="flex items-center">
-                            <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 h-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Tryout UTBK Reguler (1x)
-                        </li>
-                    </ul>
-                </div>
-                <p class="text-gray-500 text-sm text-center mb-6">Dapat diakses: 3 bulan</p>
-                <a href="/paket-kombo-utbk-skd.html"
-                    class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-                    Detail Paket
-                </a>
-            </div>
-        </div>
-
-        <div class="md:hidden relative">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide px-4">
-                        <div
-                            class="relative rounded-xl p-6 shadow-lg bg-gradient-to-b from-white to-orange-100 h-auto flex flex-col">
-                            <span
-                                class="absolute top-4 right-4 bg-orange-500 text-white text-sm px-3 py-1 rounded font-semibold">
-                                Hemat 20%
-                            </span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-2">
-                                Layanan <span class="text-orange-500">Paket Ultimate</span>
-                            </h3>
-                            <p class="text-base text-gray-400 line-through">Rp 250.000</p>
-                            <p class="text-3xl font-bold text-gray-900 mb-4">Rp 200.000</p>
-                            <div class="mb-6 text-base text-left text-gray-700 space-y-2">
-                                <p class="font-semibold">Tersedia paket-paket:</p>
-                                <p><span class="text-green-500">✅</span> Tryout UTBK Reguler</p>
-                                <p><span class="text-green-500">✅</span> Tryout CPNS Premium</p>
-                            </div>
-                            <p class="text-sm text-gray-500 text-center mb-6">Dapat diakses: 12 bulan</p>
-                            <a href="/lihat-detail-paket-hemat/ultimate"
-                                class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-                                Detail Paket
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide px-4">
-                        <div
-                            class="relative rounded-xl p-6 shadow-lg bg-gradient-to-b from-white to-orange-100 h-auto flex flex-col">
-                            <span
-                                class="absolute top-4 right-4 bg-orange-500 text-white text-sm px-3 py-1 rounded font-semibold">
-                                Hemat 15%
-                            </span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-2">
-                                Layanan <span class="text-orange-500">Paket Pro</span>
-                            </h3>
-                            <p class="text-base text-gray-400 line-through">Rp 150.000</p>
-                            <p class="text-3xl font-bold text-gray-900 mb-4">Rp 127.500</p>
-                            <div class="mb-6 text-base text-left text-gray-700 space-y-2">
-                                <p class="font-semibold">Tersedia paket-paket:</p>
-                                <p><span class="text-green-500">✅</span> Tryout UTBK Reguler</p>
-                            </div>
-                            <p class="text-sm text-gray-500 text-center mb-6">Dapat diakses: 6 bulan</p>
-                            <a href="/lihat-detail-paket-hemat/pro"
-                                class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-                                Detail Paket
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide px-4">
-                        <div
-                            class="relative rounded-xl p-6 shadow-lg bg-gradient-to-b from-white to-orange-100 h-auto flex flex-col">
-                            <span
-                                class="absolute top-4 right-4 bg-orange-500 text-white text-sm px-3 py-1 rounded font-semibold">
-                                Hemat 10%
-                            </span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-2">
-                                Layanan <span class="text-orange-500">Paket Basic</span>
-                            </h3>
-                            <p class="text-base text-gray-400 line-through">Rp 100.000</p>
-                            <p class="text-3xl font-bold text-gray-900 mb-4">Rp 90.000</p>
-                            <div class="mb-6 text-base text-left text-gray-700 space-y-2">
-                                <p class="font-semibold">Tersedia paket-paket:</p>
-                                <p><span class="text-green-500">✅</span> Tryout UTBK Reguler (1x)</p>
-                            </div>
-                            <p class="text-sm text-gray-500 text-center mb-6">Dapat diakses: 3 bulan</p>
-                            <a href="/lihat-detail-paket-hemat/basic"
-                                class="block bg-blue-600 text-white text-center w-full py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-                                Detail Paket
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-prev absolute top-1/2 left-0 -translate-y-1/2 text-gray-600"></div>
-            <div class="swiper-button-next absolute top-1/2 right-0 -translate-y-1/2 text-gray-600"></div>
-        </div>
-
-    </section>
-
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1.2,
-            centeredSlides: true,
-            initialSlide: 1, // Card 2 sebagai default
-            spaceBetween: 20,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            }
-        });
-    </script>
-
-    <section class="relative w-full overflow-visible my-20 mx-auto max-w-7xl md:rounded-[30px]">
-        <div class="absolute inset-0 overflow-hidden md:rounded-[30px]">
-            <img src="./dist/assets/static/images/eval/landing/bgdetail.png" alt="Background"
-                class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/30 md:rounded-[30px]"></div>
-        </div>
-
-        <div
-            class="relative z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 text-white space-y-16 md:space-y-0">
-
-            <div class="w-full md:w-1/3 text-center md:text-left">
-                <h3 class="text-orange-400 font-bold text-lg mb-2">Masih Bingung Dengan Layanan Kami?</h3>
-                <p class="text-white text-sm mb-4 max-w-sm mx-auto md:mx-0">
-                    Tanyakan apa saja seputar layanan kami kepada asisten AI yang siap
-                    menjawab semua pertanyaan Anda 24/7.
-                </p>
-                <button onclick="toggleChatbot()"
-                    class="bg-orange-400 hover:bg-orange-500 text-white font-semibold py-2 px-6 rounded-full text-sm">
-                    Tanya AI
-                </button>
-            </div>
-
-            <div
-                class="w-full md:w-auto flex justify-center relative md:absolute md:top-[-60px] md:left-1/2 md:transform md:-translate-x-1/2 z-20">
-                <img src="./dist/assets/static/images/eval/cewelap.png" alt="Character" class="w-36 md:w-48 object-contain" />
-            </div>
-
-            <div class="w-full md:w-1/3 text-center md:text-right">
-                <h3 class="text-white font-bold text-xl leading-snug">
-                    Ayo Belajar Dengan Kami <br />
-                    Sekarang !
-                </h3>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="scroll-margin-top: 100px py-16 bg-gray-50">
-        <div class="container mx-auto flex flex-col lg:flex-row items-start gap-12 px-4 lg:px-8">
-            <div class="lg:w-[40%] flex justify-center lg:justify-start md:data-aos-fade-left">
-                <img src="./dist/assets/static/images/eval/landing/faq.png" alt="Maskot"
-                    class="w-130 ml-15h-auto drop-shadow-lg mx-auto lg:mx-0">
-            </div>
-
-            <div class="lg:w-[60%] lg:data-aos-fade-left">
-                <div class="text-center lg:text-left mb-6 ">
-                    <h2 class="text-3xl font-bold text-gray-900">
-                        Frequentely Ask <span class="text-orange-500">Questions</span>
-                    </h2>
-                    <p class="text-gray-600 mt-2 text-center md:text-left px-6 md:px-0">
-                        Punya pertanyaan? Kami siap membantu. Temukan jawaban cepat untuk pertanyaan umum seputar
-                        platform, paket, dan fitur diEvaluasi di bawah ini.
-                    </p>
-                </div>
-
-                <div class="space-y-4 px-4 md:px-0 w-full">
-                    <details class="group border rounded-lg overflow-hidden">
-                        <summary
-                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
-                            <span>Apakah Soal Test Dengan Kurikulum Terbaru?</span>
-                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="p-4 bg-white text-gray-700">
-                            Tentu saja. Tim ahli kami secara rutin memperbarui bank soal dan materi untuk memastikan
-                            semuanya selaras dengan kurikulum dan standar ujian nasional terkini, termasuk format soal
-                            HOTS (Higher Order Thinking Skills).
-                        </div>
-                    </details>
-
-                    <details class="group border rounded-lg overflow-hidden">
-                        <summary
-                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
-                            <span>Apakah Ada Pembahasan Lengkap?</span>
-                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="p-4 bg-white text-gray-700">
-                            Ya, setiap soal disertai dengan pembahasan lengkap yang detail dan mudah dipahami.
-                            Pembahasan kami tidak hanya memberikan jawaban yang benar, tetapi juga menjelaskan konsep
-                            dasar dan strategi pengerjaannya.
-                        </div>
-                    </details>
-
-                    <details class="group border rounded-lg overflow-hidden">
-                        <summary
-                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
-                            <span>Berapa Lama Akses Soal Test?</span>
-                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="p-4 bg-white text-gray-700">
-                            Masa aktif setiap paket bervariasi, umumnya mulai dari 1 bulan, 6 bulan, hingga 1 tahun.
-                            Anda dapat melihat detail masa aktif pada setiap pilihan paket sebelum melakukan pembelian.
-                        </div>
-                    </details>
-                    <details class="group border rounded-lg overflow-hidden">
-                        <summary
-                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
-                            <span>Metode pembayaran apa saja yang tersedia?</span>
-                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="p-4 bg-white text-gray-700">
-                            Kami menerima berbagai metode pembayaran yang mudah dan aman, termasuk transfer bank
-                            (Virtual Account), e-wallet (GoPay, OVO, Dana, ShopeePay), dan kartu kredit/debit.
-                        </div>
-                    </details>
-                    <details class="group border rounded-lg overflow-hidden">
-                        <summary
-                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
-                            <span>Apakah platform ini bisa diakses di handphone?</span>
-                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="p-4 bg-white text-gray-700">
-                            Tentu. Platform diEvaluasi sepenuhnya responsif. Anda bisa mengakses semua fitur,
-                            mengerjakan tes, dan melihat pembahasan dengan nyaman melalui browser di komputer, tablet,
-                            maupun handphone Anda.
-                        </div>
-                    </details>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="hidden md:block relative bg-white pb-32 mt-15">
-        <div class="container mx-auto flex flex-col md:flex-row items-center px-4 md:px-8" data-aos="fade-right">
-            <div class="md:w-1/2 mb-8 md:mb-0 ml-15">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Tunggu Apalagi? Ayoo Daftar Sekarang <br class="hidden md:block" />
-                    Dan Jadilah Yang Terbaik
-                </h2>
-                <p class="text-gray-600 mb-6">
-                    Ribuan pesaing Anda mungkin sudah mulai berlatih sekarang. Jangan tunda lagi kesempatan Anda untuk
-                    mendapatkan keunggulan. Ambil langkah pertama menuju kesuksesan Anda hari ini!
-                </p>
-                <button onclick="scrollToSection('promo', false, event)"
-                    class="bg-orange-500 text-white py-3 px-6 rounded-full hover:bg-orange-600 transition">
-                    Pilih Paket Test Sekarang!
-                </button>
-            </div>
-
-            <div class="md:w-1/2 flex justify-end" data-aos="fade-left">
-                <img src="./dist/assets/static/images/eval/landing/girl2.png" alt="Student"
-                    class="max-w-130 h-auto drop-shadow-lg mr-15" />
-            </div>
-        </div>
-
-        <div class="container mx-auto relative z-20 drop-shadow-2xl mt-5" data-aos="fade-up">
-            <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-50">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">
-                            Ingin Belajar dan Meningkatkan <br class="hidden md:block" />
-                            <span class="text-orange-500">Skill Bahasa Inggris?</span>
-                        </h3>
-                        <p class="text-gray-600">
-                            Ikuti juga kelas bahasa inggris dari diEvaluasi sekarang
-                        </p>
-                    </div>
-                    <div>
-                        <button class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition">
-                            Lihat Informasi Course
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="block md:hidden bg-white pb-16">
-        <div class="container mx-auto flex flex-col items-center px-4" data-aos="fade-up">
-
-            <div class="text-center mt-3">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">
-                    Daftar Sekarang <br />
-                    & Jadilah yang Terbaik!
-                </h2>
-                <p class="text-gray-600 mb-4">
-                    Tingkatkan kemampuanmu dengan kursus terbaik dari diEvaluasi.
-                </p>
-                <div class="w-full flex justify-center">
-                    <img src="./dist/assets/static/images/eval/student.png" alt="Student"
-                        class="max-w-xs h-auto drop-shadow-lg" />
-                </div>
-                <button class="bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition mt-10">
-                    Pilih Paket Test
-                </button>
-            </div>
-
-            <div class="container mx-auto mt-6 relative z-20 drop-shadow-2xl px-4 items-center">
-                <div
-                    class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-36 text-center">
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">
-                        Upgrade <span class="text-orange-500">Skill Bahasa Inggris</span> Kamu!
-                    </h3>
-                    <p class="text-gray-600 text-sm">
-                        Ikuti kelas eksklusif dari diEvaluasi sekarang.
-                    </p>
-                    <button
-                        class="bg-blue-600 text-white py-2 px-5 mt-3 rounded-full hover:bg-blue-700 transition mx-auto">
-                        Lihat Course
-                    </button>
-                </div>
-            </div>
-
-    </section>
-
-</body>
-
-<script>
-    AOS.init({
-        duration: 800, // Durasi animasi (ms)
-        once: true // Animasi muncul sekali saja
-    });
-</script>
-
+    </body>
 </html>

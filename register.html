@@ -46,115 +46,125 @@
             </p>
           </div>
 
-          <div class="relative mb-4">
-            <input
-              placeholder="Email"
-              id="email"
-              type="email"
-              class="block w-full px-4 pl-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              name="email"
-              value=""
-              required
-              autofocus
-            />
-            <span
-              class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            >
-              <i class="bi bi-envelope-fill"></i>
-            </span>
-          </div>
+          <form action="/dievaluasi-statis/register-success.html" method="POST">
+            <div class="relative mb-4">
+              <input
+                placeholder="Email"
+                id="email"
+                type="email"
+                class="block w-full px-4 pl-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="email"
+                value=""
+                required
+                autofocus
+              />
+              <span
+                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+              >
+                <i class="bi bi-envelope-fill"></i>
+              </span>
+            </div>
 
-          <div class="relative mb-4">
-            <input
-              placeholder="Nama Lengkap"
-              id="name"
-              type="text"
-              class="block w-full px-4 pl-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              name="name"
-              value=""
-              required
-            />
-            <span
-              class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            >
-              <i class="bi bi-person-fill"></i>
-            </span>
-          </div>
+            <div class="relative mb-4">
+              <input
+                placeholder="Nama Lengkap"
+                id="name"
+                type="text"
+                class="block w-full px-4 pl-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="name"
+                value=""
+                required
+              />
+              <span
+                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+              >
+                <i class="bi bi-person-fill"></i>
+              </span>
+            </div>
 
-          <div class="relative mb-4">
-            <input
-              placeholder="Nomor Telepon"
-              id="no_telp"
-              type="number"
-              class="block w-full px-4 pl-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              name="no_telp"
-              value=""
-              required
-            />
-            <span
-              class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            >
-              <i class="bi bi-telephone-fill"></i>
-            </span>
-          </div>
+            <div class="relative mb-4">
+              <input
+                placeholder="Nomor Telepon"
+                id="no_telp"
+                type="number"
+                class="block w-full px-4 pl-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="no_telp"
+                value=""
+                required
+              />
+              <span
+                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+              >
+                <i class="bi bi-telephone-fill"></i>
+              </span>
+            </div>
 
-          <div class="relative mb-4">
-            <input
-              placeholder="Password"
-              id="password"
-              type="password"
-              class="block w-full px-4 pl-12 pr-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              name="password"
-              required
-            />
-            <span
-              class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            >
-              <i class="bi bi-lock-fill"></i>
-            </span>
-            <span
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer toggle-password-icon"
-              onclick="togglePassword('password', 'icon1')"
-            >
-              <i class="bi bi-eye-slash" id="icon1" title="Lihat Password"></i>
-            </span>
-          </div>
+            <div class="relative mb-4">
+              <input
+                placeholder="Password"
+                id="password"
+                type="password"
+                class="block w-full px-4 pl-12 pr-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="password"
+                required
+              />
+              <span
+                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+              >
+                <i class="bi bi-lock-fill"></i>
+              </span>
+              <span
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer toggle-password-icon"
+                onclick="togglePassword('password', 'icon1')"
+              >
+                <i
+                  class="bi bi-eye-slash"
+                  id="icon1"
+                  title="Lihat Password"
+                ></i>
+              </span>
+            </div>
 
-          <div class="relative mb-4">
-            <input
-              placeholder="Konfirmasi Password"
-              id="password-confirm"
-              type="password"
-              class="block w-full px-4 pl-12 pr-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              name="password_confirmation"
-              required
-            />
-            <span
-              class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            >
-              <i class="bi bi-check-circle-fill"></i>
-            </span>
-            <span
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer toggle-password-icon"
-              onclick="togglePassword('password-confirm', 'icon2')"
-            >
-              <i class="bi bi-eye-slash" id="icon2" title="Lihat Password"></i>
-            </span>
-          </div>
+            <div class="relative mb-4">
+              <input
+                placeholder="Konfirmasi Password"
+                id="password-confirm"
+                type="password"
+                class="block w-full px-4 pl-12 pr-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="password_confirmation"
+                required
+              />
+              <span
+                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+              >
+                <i class="bi bi-check-circle-fill"></i>
+              </span>
+              <span
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer toggle-password-icon"
+                onclick="togglePassword('password-confirm', 'icon2')"
+              >
+                <i
+                  class="bi bi-eye-slash"
+                  id="icon2"
+                  title="Lihat Password"
+                ></i>
+              </span>
+            </div>
 
-          <button
-            type="submit"
-            class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md shadow-md mt-6"
-          >
-            <i class="bi bi-person-plus-fill mr-1"></i> Registrasi Sekarang
-            (Dummy)
-          </button>
+            <button
+              type="submit"
+              class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md shadow-md mt-6"
+            >
+              <i class="bi bi-person-plus-fill mr-1"></i> Registrasi Sekarang
+              (Dummy)
+            </button>
+          </form>
 
           <div class="text-center mt-6 text-sm text-gray-500">
             <p class="mb-1">
               Sudah punya akun?
               <a
-                href="/login.html"
+                href="/dievaluasi-statis/login.html"
                 class="text-blue-700 font-bold hover:underline"
                 >Login</a
               >

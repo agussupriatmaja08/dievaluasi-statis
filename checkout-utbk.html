@@ -26,7 +26,7 @@
       <div
         class="container mx-auto flex items-center justify-between py-2 px-6"
       >
-        <a href="/">
+        <a href="/dievaluasi-statis/">
           <img
             src="./dist/assets/static/images/eval/logo.png"
             alt="logo"
@@ -36,18 +36,26 @@
 
         <div class="flex-1 flex justify-center">
           <nav class="hidden md:flex space-x-6 text-gray-800">
-            <a href="/" class="hover:text-orange-500">Beranda</a>
+            <a href="/dievaluasi-statis/" class="hover:text-orange-500"
+              >Beranda</a
+            >
             <a
-              href="/"
-              onclick="scrollToSection('promo', false, event)"
+              href="/dievaluasi-statis/index.html#promo"
               class="hover:text-orange-500"
               >Our Promo</a
             >
-            <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
-            <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
             <a
-              href="/"
-              onclick="scrollToSection('faq', false, event)"
+              href="/dievaluasi-statis/tryout.html"
+              class="hover:text-orange-500"
+              >Tryout</a
+            >
+            <a
+              href="/dievaluasi-statis/privat.html"
+              class="hover:text-orange-500"
+              >Les Privat</a
+            >
+            <a
+              href="/dievaluasi-statis/index.html#faq"
               class="hover:text-orange-500"
               >FAQ</a
             >
@@ -55,7 +63,7 @@
         </div>
 
         <a
-          href="/login.html"
+          href="/dievaluasi-statis/login.html"
           class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16"
         >
           Login →
@@ -106,36 +114,34 @@
     >
       <div class="flex flex-col items-start py-8 space-y-1">
         <a
-          href="/"
+          href="/dievaluasi-statis/"
           onclick="scrollToSection('beranda', true, event)"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Beranda</a
         >
         <a
-          href="/"
-          onclick="scrollToSection('promo', true, event)"
+          href="/dievaluasi-statis/index.html#promo"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Our Promo</a
         >
         <a
-          href="/tryout.html"
+          href="/dievaluasi-statis/tryout.html"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Tryout</a
         >
         <a
-          href="/privat.html"
+          href="/dievaluasi-statis/privat.html"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Les Privat</a
         >
         <a
-          href="/"
-          onclick="scrollToSection('faq', true, event)"
+          href="/dievaluasi-statis/index.html#faq"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >FAQ</a
         >
 
         <a
-          href="/login.html"
+          href="/dievaluasi-statis/login.html"
           class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"
         >
           Login
@@ -170,30 +176,29 @@
         }
       });
 
-      function scrollToSection(id, isMobile = false, event = null) {
-        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
-
-        const section = document.getElementById(id);
-        if (section) {
-          // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
-          const offset = isMobile ? 60 : 80; // Contoh: 60px untuk mobile, 80px untuk desktop
-          const elementPosition =
-            section.getBoundingClientRect().top + window.scrollY;
-          const offsetPosition = elementPosition - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-
-          // Tutup menu mobile jika sedang dibuka
-          if (isMobile) {
-            mobileMenu.classList.add("-translate-y-full");
-            hamburgerIcon.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
-          }
-        }
-      }
+      // Fungsi scrollToSection ini HANYA diperlukan di halaman yang memang memiliki section untuk di-scroll.
+      // Karena halaman checkout ini tidak memiliki section untuk di-scroll secara internal,
+      // fungsi ini dapat dihapus dari halaman ini untuk menghindari code duplikasi yang tidak perlu.
+      // Saya mengomentarinya di sini, Anda bisa menghapusnya jika yakin tidak diperlukan.
+      // function scrollToSection(id, isMobile = false, event = null) {
+      //     if (event) event.preventDefault();
+      //     const section = document.getElementById(id);
+      //     if (section) {
+      //         const offset = isMobile ? 60 : 80;
+      //         const elementPosition =
+      //             section.getBoundingClientRect().top + window.scrollY;
+      //         const offsetPosition = elementPosition - offset;
+      //         window.scrollTo({
+      //             top: offsetPosition,
+      //             behavior: "smooth",
+      //         });
+      //         if (isMobile) {
+      //             mobileMenu.classList.add("-translate-y-full");
+      //             hamburgerIcon.classList.remove("hidden");
+      //             closeIcon.classList.add("hidden");
+      //         }
+      //     }
+      // }
     </script>
 
     <div class="container mx-auto px-4 py-10">
@@ -294,7 +299,10 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-lg p-6 w-full lg:w-1/3 mr-42">
-          <form action="/checkout-utbk-success.html" method="GET">
+          <form
+            action="/dievaluasi-statis/checkout-utbk-success.html"
+            method="GET"
+          >
             <div class="space-y-2 mb-4">
               <div class="flex justify-between items-center">
                 <h3 class="text-base font-semibold text-gray-700">Subtotal</h3>
@@ -461,7 +469,7 @@
                 <div class="flex justify-between items-center mt-2">
                   <p class="text-sm font-semibold text-gray-800">Rp75.000</p>
                   <a
-                    href="/keranjang-tryout-skd.html"
+                    href="/dievaluasi-statis/keranjang-tryout-skd.html"
                     class="text-sm font-medium text-blue-600 hover:underline"
                   >
                     Detail →
@@ -533,7 +541,151 @@
                 <div class="flex justify-between items-center mt-2">
                   <p class="text-sm font-semibold text-gray-800">Rp60.000</p>
                   <a
-                    href="/keranjang-tryout-mandiri.html"
+                    href="/dievaluasi-statis/keranjang-tryout-mandiri.html"
+                    class="text-sm font-medium text-blue-600 hover:underline"
+                  >
+                    Detail →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col w-full max-w-sm mx-auto"
+          >
+            <div class="relative h-36 overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="./dist/assets/static/images/eval/placeholder_kedinasan.jpg"
+                alt="Tryout Kedinasan"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <h2
+                class="absolute bottom-2 left-3 text-lg font-semibold text-white line-clamp-1"
+              >
+                Tryout Kedinasan
+              </h2>
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+              <span
+                class="inline-block bg-purple-100 text-purple-800 text-xs font-medium mb-2 px-2.5 py-0.5 rounded-full self-start"
+              >
+                Kedinasan
+              </span>
+              <div class="text-sm text-gray-600 space-y-1 mb-4">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 7h10M7 11h10M7 15h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"
+                    />
+                  </svg>
+                  <span>1 Set Soal</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.25 3v2.25M6.75 3v2.25M4 7.5h16v10.5a2.25 2.25 0 01-2.25 2.25H6.25A2.25 2.25 0 014 18V7.5z"
+                    />
+                  </svg>
+                  <span>1 Bulan Akses</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-3 border-t border-gray-100">
+                <div class="flex justify-between items-center mt-2">
+                  <p class="text-sm font-semibold text-gray-800">Rp69.000</p>
+                  <a
+                    href="/keranjang-tryout-kedinasan.html"
+                    class="text-sm font-medium text-blue-600 hover:underline"
+                  >
+                    Detail →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col w-full max-w-sm mx-auto"
+          >
+            <div class="relative h-36 overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="./dist/assets/static/images/eval/placeholder_toefl.jpg"
+                alt="Tryout TOEFL Prediction"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <h2
+                class="absolute bottom-2 left-3 text-lg font-semibold text-white line-clamp-1"
+              >
+                Tryout TOEFL Prediction
+              </h2>
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+              <span
+                class="inline-block bg-yellow-50 text-yellow-700 text-xs font-medium mb-2 px-2.5 py-0.5 rounded-full self-start"
+              >
+                TOEFL
+              </span>
+              <div class="text-sm text-gray-600 space-y-1 mb-4">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 7h10M7 11h10M7 15h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"
+                    />
+                  </svg>
+                  <span>5 Set Soal</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.25 3v2.25M6.75 3v2.25M4 7.5h16v10.5a2.25 2.25 0 01-2.25 2.25H6.25A2.25 2.25 0 014 18V7.5z"
+                    />
+                  </svg>
+                  <span>12 Bulan Akses</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-3 border-t border-gray-100">
+                <div class="flex justify-between items-center mt-2">
+                  <p class="text-sm font-semibold text-gray-800">Rp35.000</p>
+                  <a
+                    href="/keranjang-tryout-toefl.html"
                     class="text-sm font-medium text-blue-600 hover:underline"
                   >
                     Detail →
@@ -569,7 +721,7 @@
         //     function performDiscountCheck() {
         //         const promoCode = promoInput.value;
         //         const referralCode = referralInput.value;
-        //         const originalPrice = 85000; // Harga statis untuk demo ini
+        //         const originalPrice = 59000; // Harga statis untuk demo ini
         //         const csrfToken = ''; // Tidak ada CSRF token di HTML statis
 
         //         checkBtn.textContent = 'Mengecek...';
@@ -580,11 +732,11 @@
         //         // Untuk demo statis, kita hanya akan set nilai statis
         //         setTimeout(() => {
         //             let discountAmount = 0;
-        //             if (promoCode === 'UTBKDISKON') { // Contoh kode promo dummy
-        //                 discountAmount = 10000;
-        //                 showModalAlert('Kode promo UTBK berhasil diterapkan!', 'Berhasil', 'success');
-        //             } else if (referralCode === 'REFERRALMABA') { // Contoh kode referral dummy
-        //                 discountAmount = 5000;
+        //             if (promoCode === 'DISKON10') { // Contoh kode promo dummy
+        //                 discountAmount = 5900; // 10% dari 59000
+        //                 showModalAlert('Kode promo berhasil diterapkan!', 'Berhasil', 'success');
+        //             } else if (referralCode === 'REFERRALSAKTI') { // Contoh kode referral dummy
+        //                 discountAmount = 3000;
         //                 showModalAlert('Kode referral berhasil diterapkan!', 'Berhasil', 'success');
         //             } else if (promoCode || referralCode) {
         //                 showModalAlert('Kode tidak valid atau tidak ada diskon.', 'Gagal', 'error');

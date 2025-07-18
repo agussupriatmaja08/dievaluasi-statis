@@ -25,7 +25,7 @@
       <div
         class="container mx-auto flex items-center justify-between py-2 px-6"
       >
-        <a href="/">
+        <a href="/dievaluasi-statis/">
           <img
             src="./dist/assets/static/images/eval/logo.png"
             alt="logo"
@@ -35,18 +35,26 @@
 
         <div class="flex-1 flex justify-center">
           <nav class="hidden md:flex space-x-6 text-gray-800">
-            <a href="/" class="hover:text-orange-500">Beranda</a>
+            <a href="/dievaluasi-statis/" class="hover:text-orange-500"
+              >Beranda</a
+            >
             <a
-              href="/"
-              onclick="scrollToSection('promo', false, event)"
+              href="/dievaluasi-statis/index.html#promo"
               class="hover:text-orange-500"
               >Our Promo</a
             >
-            <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
-            <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
             <a
-              href="/"
-              onclick="scrollToSection('faq', false, event)"
+              href="/dievaluasi-statis/tryout.html"
+              class="hover:text-orange-500"
+              >Tryout</a
+            >
+            <a
+              href="/dievaluasi-statis/privat.html"
+              class="hover:text-orange-500"
+              >Les Privat</a
+            >
+            <a
+              href="/dievaluasi-statis/index.html#faq"
               class="hover:text-orange-500"
               >FAQ</a
             >
@@ -54,7 +62,7 @@
         </div>
 
         <a
-          href="/login.html"
+          href="/dievaluasi-statis/login.html"
           class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16"
         >
           Login →
@@ -105,36 +113,34 @@
     >
       <div class="flex flex-col items-start py-8 space-y-1">
         <a
-          href="/"
+          href="/dievaluasi-statis/"
           onclick="scrollToSection('beranda', true, event)"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Beranda</a
         >
         <a
-          href="/"
-          onclick="scrollToSection('promo', true, event)"
+          href="/dievaluasi-statis/index.html#promo"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Our Promo</a
         >
         <a
-          href="/tryout.html"
+          href="/dievaluasi-statis/tryout.html"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Tryout</a
         >
         <a
-          href="/privat.html"
+          href="/dievaluasi-statis/privat.html"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >Les Privat</a
         >
         <a
-          href="/"
-          onclick="scrollToSection('faq', true, event)"
+          href="/dievaluasi-statis/index.html#faq"
           class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
           >FAQ</a
         >
 
         <a
-          href="/login.html"
+          href="/dievaluasi-statis/login.html"
           class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"
         >
           Login
@@ -169,30 +175,29 @@
         }
       });
 
-      function scrollToSection(id, isMobile = false, event = null) {
-        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
-
-        const section = document.getElementById(id);
-        if (section) {
-          // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
-          const offset = isMobile ? 60 : 80; // Contoh: 60px untuk mobile, 80px untuk desktop
-          const elementPosition =
-            section.getBoundingClientRect().top + window.scrollY;
-          const offsetPosition = elementPosition - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-
-          // Tutup menu mobile jika sedang dibuka
-          if (isMobile) {
-            mobileMenu.classList.add("-translate-y-full");
-            hamburgerIcon.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
-          }
-        }
-      }
+      // Fungsi scrollToSection ini HANYA diperlukan di halaman yang memang memiliki section untuk di-scroll.
+      // Karena halaman detail paket kombo ini tidak memiliki section untuk di-scroll secara internal,
+      // fungsi ini dapat dihapus dari halaman ini untuk menghindari code duplikasi yang tidak perlu.
+      // Saya akan mengomentarinya di sini, Anda bisa menghapusnya jika yakin tidak diperlukan.
+      // function scrollToSection(id, isMobile = false, event = null) {
+      //     if (event) event.preventDefault();
+      //     const section = document.getElementById(id);
+      //     if (section) {
+      //         const offset = isMobile ? 60 : 80;
+      //         const elementPosition =
+      //             section.getBoundingClientRect().top + window.scrollY;
+      //         const offsetPosition = elementPosition - offset;
+      //         window.scrollTo({
+      //             top: offsetPosition,
+      //             behavior: "smooth",
+      //         });
+      //         if (isMobile) {
+      //             mobileMenu.classList.add("-translate-y-full");
+      //             hamburgerIcon.classList.remove("hidden");
+      //             closeIcon.classList.add("hidden");
+      //         }
+      //     }
+      // }
     </script>
 
     <div class="container mx-auto px-6 py-10">
@@ -229,7 +234,7 @@
 
             <div class="text-center mt-8">
               <a
-                href="/checkout-utbk-skd.html"
+                href="/dievaluasi-statis/checkout-utbk-skd.html"
                 class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-blue-700 transition-all inline-block"
               >
                 Beli Sekarang →
