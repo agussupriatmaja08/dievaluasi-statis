@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Paket Kombo</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#ECF4F9] text-gray-800">
+    <header
+      class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between py-2 px-6"
+      >
+        <a href="/">
+          <img
+            src="./dist/assets/static/images/eval/logo.png"
+            alt="logo"
+            class="h-15 w-auto ml-16"
+          />
+        </a>
+
+        <div class="flex-1 flex justify-center">
+          <nav class="hidden md:flex space-x-6 text-gray-800">
+            <a href="/" class="hover:text-orange-500">Beranda</a>
+            <a
+              href="/"
+              onclick="scrollToSection('promo', false, event)"
+              class="hover:text-orange-500"
+              >Our Promo</a
+            >
+            <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
+            <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
+            <a
+              href="/"
+              onclick="scrollToSection('faq', false, event)"
+              class="hover:text-orange-500"
+              >FAQ</a
+            >
+          </nav>
+        </div>
+
+        <a
+          href="/login.html"
+          class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16"
+        >
+          Login →
+        </a>
+
+        <button
+          id="menu-btn"
+          class="block md:hidden text-gray-800 focus:outline-none ml-auto"
+        >
+          <svg
+            id="hamburger-icon"
+            class="w-8 h-8 transition-transform duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+
+          <svg
+            id="close-icon"
+            class="w-8 h-8 hidden transition-transform duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40"
+    >
+      <div class="flex flex-col items-start py-8 space-y-1">
+        <a
+          href="/"
+          onclick="scrollToSection('beranda', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Beranda</a
+        >
+        <a
+          href="/"
+          onclick="scrollToSection('promo', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Our Promo</a
+        >
+        <a
+          href="/tryout.html"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Tryout</a
+        >
+        <a
+          href="/privat.html"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Les Privat</a
+        >
+        <a
+          href="/"
+          onclick="scrollToSection('faq', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >FAQ</a
+        >
+
+        <a
+          href="/login.html"
+          class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"
+        >
+          Login
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      menuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+          mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+          hamburgerIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        } else {
+          mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      // Tutup menu jika klik di luar menu
+      window.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add("-translate-y-full");
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      function scrollToSection(id, isMobile = false, event = null) {
+        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+        const section = document.getElementById(id);
+        if (section) {
+          // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
+          const offset = isMobile ? 60 : 80; // Contoh: 60px untuk mobile, 80px untuk desktop
+          const elementPosition =
+            section.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // Tutup menu mobile jika sedang dibuka
+          if (isMobile) {
+            mobileMenu.classList.add("-translate-y-full");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+          }
+        }
+      }
+    </script>
+
+    <div class="container mx-auto px-6 py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-6xl mx-auto">
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+            <h1 class="text-4xl font-bold mb-3">Paket Super Kombo Premium</h1>
+
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+              <span
+                class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-medium shadow"
+              >
+                Aktif 6 bulan
+              </span>
+              <div
+                class="flex items-baseline gap-2 bg-red-100 text-red-600 px-3 py-1 rounded-full font-bold"
+              >
+                <span class="text-sm">Diskon</span>
+                <span class="">50%</span>
+                <span class="text-lg font-semibold">Rp.125.000</span>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold items-center mb-4">
+              Tentang Paket Kombo
+            </h3>
+            <p class="text-gray-700 mb-6">
+              Deskripsi paket Super Kombo Premium ini adalah contoh statis.
+              Paket ini dirancang untuk memberikan pengalaman belajar terbaik
+              dengan semua tryout dan materi terbaru. Anda akan mendapatkan
+              akses tak terbatas ke berbagai soal latihan dan pembahasan
+              mendalam.
+            </p>
+
+            <div class="text-center mt-8">
+              <a
+                href="/checkout-utbk-skd.html"
+                class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-blue-700 transition-all inline-block"
+              >
+                Beli Sekarang →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 lg:sticky lg:top-20"
+          >
+            <h2 class="text-blue-600 font-semibold text-xl mb-4">
+              Daftar TryOut & Materi
+            </h2>
+            <div class="space-y-6">
+              <div
+                class="bg-gray-50 p-5 rounded-xl shadow-sm border border-gray-200"
+              >
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Tryout UTBK SNBT 2025
+                </h3>
+                <p class="text-gray-600 text-sm mb-3">
+                  Latihan soal SNBT tahun 2025 dengan fokus pada penalaran umum
+                  dan matematika. Persiapkan dirimu untuk ujian masuk
+                  universitas impian.
+                </p>
+                <div class="flex items-center text-gray-600 text-sm mb-4 mt-4">
+                  <div class="flex items-center text-gray-700">
+                    <svg
+                      class="w-5 h-5 mr-3 text-purple-500"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                      ></path>
+                    </svg>
+                    <span
+                      >Kesempatan Mengerjakan:
+                      <strong class="font-semibold">5 kali</strong></span
+                    >
+                  </div>
+                </div>
+                <h4 class="text-md font-bold text-gray-800 mb-3">
+                  Materi yang diujikan:
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div
+                    class="bg-blue-100 text-blue-700 p-3 rounded-lg transition-transform hover:scale-105"
+                  >
+                    <h5 class="font-semibold text-sm mb-1 truncate">
+                      Penalaran Umum
+                    </h5>
+                    <p class="text-xs">30 Soal</p>
+                  </div>
+                  <div
+                    class="bg-green-100 text-green-700 p-3 rounded-lg transition-transform hover:scale-105"
+                  >
+                    <h5 class="font-semibold text-sm mb-1 truncate">
+                      Pengetahuan Kuantitatif
+                    </h5>
+                    <p class="text-xs">20 Soal</p>
+                  </div>
+                  <div
+                    class="bg-purple-100 text-purple-700 p-3 rounded-lg transition-transform hover:scale-105"
+                  >
+                    <h5 class="font-semibold text-sm mb-1 truncate">
+                      Pengetahuan dan Pemahaman Umum
+                    </h5>
+                    <p class="text-xs">20 Soal</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-gray-50 p-5 rounded-xl shadow-sm border border-gray-200"
+              >
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Tryout CPNS SKD Premium
+                </h3>
+                <p class="text-gray-600 text-sm mb-3">
+                  Simulasi SKD CPNS dengan soal-soal terbaru TWK, TIU, dan TKP.
+                  Tingkatkan peluangmu lolos seleksi penerimaan CPNS.
+                </p>
+                <div class="flex items-center text-gray-600 text-sm mb-4 mt-4">
+                  <div class="flex items-center text-gray-700">
+                    <svg
+                      class="w-5 h-5 mr-3 text-purple-500"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                      ></path>
+                    </svg>
+                    <span
+                      >Kesempatan Mengerjakan:
+                      <strong class="font-semibold">3 kali</strong></span
+                    >
+                  </div>
+                </div>
+                <h4 class="text-md font-bold text-gray-800 mb-3">
+                  Materi yang diujikan:
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div
+                    class="bg-yellow-100 text-yellow-700 p-3 rounded-lg transition-transform hover:scale-105"
+                  >
+                    <h5 class="font-semibold text-sm mb-1 truncate">
+                      Tes Wawasan Kebangsaan (TWK)
+                    </h5>
+                    <p class="text-xs">30 Soal</p>
+                  </div>
+                  <div
+                    class="bg-indigo-100 text-indigo-700 p-3 rounded-lg transition-transform hover:scale-105"
+                  >
+                    <h5 class="font-semibold text-sm mb-1 truncate">
+                      Tes Inteligensia Umum (TIU)
+                    </h5>
+                    <p class="text-xs">35 Soal</p>
+                  </div>
+                  <div
+                    class="bg-orange-100 text-orange-700 p-3 rounded-lg transition-transform hover:scale-105"
+                  >
+                    <h5 class="font-semibold text-sm mb-1 truncate">
+                      Tes Karakteristik Pribadi (TKP)
+                    </h5>
+                    <p class="text-xs">45 Soal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

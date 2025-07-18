@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout TryOut UTBK - diEvaluasi</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#ECF4F9] text-gray-800">
+    <header
+      class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between py-2 px-6"
+      >
+        <a href="/">
+          <img
+            src="./dist/assets/static/images/eval/logo.png"
+            alt="logo"
+            class="h-15 w-auto ml-16"
+          />
+        </a>
+
+        <div class="flex-1 flex justify-center">
+          <nav class="hidden md:flex space-x-6 text-gray-800">
+            <a href="/" class="hover:text-orange-500">Beranda</a>
+            <a
+              href="/"
+              onclick="scrollToSection('promo', false, event)"
+              class="hover:text-orange-500"
+              >Our Promo</a
+            >
+            <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
+            <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
+            <a
+              href="/"
+              onclick="scrollToSection('faq', false, event)"
+              class="hover:text-orange-500"
+              >FAQ</a
+            >
+          </nav>
+        </div>
+
+        <a
+          href="/login.html"
+          class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16"
+        >
+          Login →
+        </a>
+
+        <button
+          id="menu-btn"
+          class="block md:hidden text-gray-800 focus:outline-none ml-auto"
+        >
+          <svg
+            id="hamburger-icon"
+            class="w-8 h-8 transition-transform duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+
+          <svg
+            id="close-icon"
+            class="w-8 h-8 hidden transition-transform duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40"
+    >
+      <div class="flex flex-col items-start py-8 space-y-1">
+        <a
+          href="/"
+          onclick="scrollToSection('beranda', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Beranda</a
+        >
+        <a
+          href="/"
+          onclick="scrollToSection('promo', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Our Promo</a
+        >
+        <a
+          href="/tryout.html"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Tryout</a
+        >
+        <a
+          href="/privat.html"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Les Privat</a
+        >
+        <a
+          href="/"
+          onclick="scrollToSection('faq', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >FAQ</a
+        >
+
+        <a
+          href="/login.html"
+          class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"
+        >
+          Login
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      menuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+          mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+          hamburgerIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        } else {
+          mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      // Tutup menu jika klik di luar menu
+      window.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add("-translate-y-full");
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      function scrollToSection(id, isMobile = false, event = null) {
+        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+        const section = document.getElementById(id);
+        if (section) {
+          // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
+          const offset = isMobile ? 60 : 80; // Contoh: 60px untuk mobile, 80px untuk desktop
+          const elementPosition =
+            section.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // Tutup menu mobile jika sedang dibuka
+          if (isMobile) {
+            mobileMenu.classList.add("-translate-y-full");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+          }
+        }
+      }
+    </script>
+
+    <div class="container mx-auto px-4 py-10">
+      <h2 class="text-4xl font-bold mb-8 pl-2 md:pl-12 lg:pl-32">
+        Keranjang Belanja
+      </h2>
+
+      <div
+        class="flex flex-col lg:flex-row gap-10 justify-center pl-2 md:pl-12 lg:pl-32"
+      >
+        <div class="bg-white rounded-xl shadow-lg w-full lg:w-2/3">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">
+              Detail Paket Pilihan Anda
+            </h3>
+            <div class="flex flex-col sm:flex-row gap-6">
+              <img
+                src="./dist/assets/static/images/utbk.jpg"
+                alt="Tryout UTBK SNBT Reguler"
+                class="w-full sm:w-40 h-40 rounded-lg object-cover bg-gray-100"
+              />
+              <div class="flex flex-col flex-grow">
+                <div>
+                  <span
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mb-2 px-2.5 py-0.5 rounded-full"
+                  >
+                    SNBT
+                  </span>
+                  <h4 class="text-xl font-bold text-gray-900">
+                    Tryout UTBK SNBT Reguler
+                  </h4>
+                  <p class="text-sm text-gray-500 mt-2 mb-4 line-clamp-2">
+                    Latihan soal UTBK SNBT komprehensif untuk persiapan masuk
+                    PTN dengan materi terbaru dan pembahasan mendalam.
+                  </p>
+                </div>
+
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                  <div class="space-y-3 text-sm text-gray-700 mb-4">
+                    <div class="flex items-center">
+                      <svg
+                        class="w-5 h-5 text-blue-500 mr-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 12l2 2 4-4m1-4h-1.586a1 1 0 01-.707-.293l-.414-.414A2 2 0 0012.586 4H11.5a2 2 0 00-1.414.586l-.414.414A1 1 0 019 5.5H7a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2v-11a2 2 0 00-2-2z"
+                        />
+                      </svg>
+                      <span>5 Kali Percobaan</span>
+                    </div>
+                    <div class="flex items-center">
+                      <svg
+                        class="w-5 h-5 text-blue-500 mr-3"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18"
+                        />
+                      </svg>
+                      <span>Masa Berlaku 12 Bulan</span>
+                    </div>
+                    <div class="flex items-center">
+                      <svg
+                        class="w-5 h-5 text-blue-500 mr-3"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Durasi 180 Menit</span>
+                    </div>
+                  </div>
+                  <div class="border-t border-gray-100 pt-3">
+                    <p class="text-sm text-gray-500">Harga Paket</p>
+                    <p class="text-2xl font-bold text-blue-700">Rp85.000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 w-full lg:w-1/3 mr-42">
+          <form action="/checkout-utbk-success.html" method="GET">
+            <div class="space-y-2 mb-4">
+              <div class="flex justify-between items-center">
+                <h3 class="text-base font-semibold text-gray-700">Subtotal</h3>
+                <span class="text-base font-semibold text-gray-900"
+                  >Rp85.000</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <h3 class="text-base font-semibold text-gray-700">Diskon</h3>
+                <span
+                  id="discount-display"
+                  class="text-base font-semibold text-red-500"
+                  >- Rp 0</span
+                >
+              </div>
+              <hr class="my-2" />
+              <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-blue-700">Total</h3>
+                <span
+                  id="total-price-display"
+                  class="text-lg font-bold text-gray-900"
+                  >Rp85.000</span
+                >
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <label
+                for="promo_code"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Kode Promo</label
+              >
+              <input
+                type="text"
+                name="promo_code"
+                id="promo_code"
+                class="border rounded w-full px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Masukkan kode promo di sini"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="referral_code"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Kode Referral</label
+              >
+              <input
+                type="text"
+                name="referral_code"
+                id="referral_code"
+                class="border rounded w-full px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Masukkan kode referral teman"
+              />
+            </div>
+
+            <button
+              type="button"
+              id="check-discount-btn"
+              class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 rounded mb-4"
+            >
+              Terapkan Kode (Tidak Aktif)
+            </button>
+
+            <label
+              for="payment_method"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Pilih Metode Pembayaran</label
+            >
+            <select
+              name="payment_method"
+              id="payment_method"
+              class="border rounded w-full px-3 py-2 mb-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="bri_va">Bank BRI</option>
+              <option value="bca_va">Bank BCA</option>
+              <option value="bni_va">Bank BNI</option>
+              <option value="qris">QRIS</option>
+              <option value="gopay">GoPay</option>
+            </select>
+
+            <input
+              type="hidden"
+              name="product_id"
+              value="tryout-utbk-reguler"
+            />
+            <input type="hidden" name="product_type" value="tryout" />
+            <input type="hidden" name="validity_period" value="12" />
+
+            <button
+              type="submit"
+              class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 rounded mt-2"
+            >
+              Lanjut ke Pembayaran (Dummy)
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold mb-6 pl-2 md:pl-12 lg:pl-32">
+          Paket Lainnya Untukmu
+        </h3>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pl-2 md:pl-12 lg:pl-32"
+        >
+          <div
+            class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col w-full max-w-sm mx-auto"
+          >
+            <div class="relative h-36 overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="./dist/assets/static/images/skd.jpg"
+                alt="Tryout SKD"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <h2
+                class="absolute bottom-2 left-3 text-lg font-semibold text-white line-clamp-1"
+              >
+                Tryout SKD CPNS
+              </h2>
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+              <span
+                class="inline-block bg-green-100 text-green-800 text-xs font-medium mb-2 px-2.5 py-0.5 rounded-full self-start"
+              >
+                CPNS
+              </span>
+              <div class="text-sm text-gray-600 space-y-1 mb-4">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 7h10M7 11h10M7 15h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"
+                    />
+                  </svg>
+                  <span>3 Set Soal</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.25 3v2.25M6.75 3v2.25M4 7.5h16v10.5a2.25 2.25 0 01-2.25 2.25H6.25A2.25 2.25 0 014 18V7.5z"
+                    />
+                  </svg>
+                  <span>6 Bulan Akses</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-3 border-t border-gray-100">
+                <div class="flex justify-between items-center mt-2">
+                  <p class="text-sm font-semibold text-gray-800">Rp75.000</p>
+                  <a
+                    href="/keranjang-tryout-skd.html"
+                    class="text-sm font-medium text-blue-600 hover:underline"
+                  >
+                    Detail →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col w-full max-w-sm mx-auto"
+          >
+            <div class="relative h-36 overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="./dist/assets/static/images/mandiri.jpg"
+                alt="Tryout Seleksi Mandiri"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <h2
+                class="absolute bottom-2 left-3 text-lg font-semibold text-white line-clamp-1"
+              >
+                Tryout Seleksi Mandiri
+              </h2>
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+              <span
+                class="inline-block bg-purple-100 text-purple-800 text-xs font-medium mb-2 px-2.5 py-0.5 rounded-full self-start"
+              >
+                Mandiri
+              </span>
+              <div class="text-sm text-gray-600 space-y-1 mb-4">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 7h10M7 11h10M7 15h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"
+                    />
+                  </svg>
+                  <span>2 Set Soal</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 h-4 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.25 3v2.25M6.75 3v2.25M4 7.5h16v10.5a2.25 2.25 0 01-2.25 2.25H6.25A2.25 2.25 0 014 18V7.5z"
+                    />
+                  </svg>
+                  <span>3 Bulan Akses</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-3 border-t border-gray-100">
+                <div class="flex justify-between items-center mt-2">
+                  <p class="text-sm font-semibold text-gray-800">Rp60.000</p>
+                  <a
+                    href="/keranjang-tryout-mandiri.html"
+                    class="text-sm font-medium text-blue-600 hover:underline"
+                  >
+                    Detail →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // JavaScript untuk SweetAlert2 (tetap ada jika Anda menggunakannya di tempat lain)
+        function showModalAlert(message, title = "Peringatan", type = "info") {
+          Swal.fire({
+            title: title,
+            text: message,
+            icon: type, // 'success', 'error', 'warning', 'info'
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            toast: false,
+          });
+        }
+
+        // Bagian JavaScript untuk diskon dan checkout di COMMENT OUT karena memerlukan backend.
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const promoInput = document.getElementById('promo_code');
+        //     const referralInput = document.getElementById('referral_code');
+        //     const checkBtn = document.getElementById('check-discount-btn');
+
+        //     // Fungsi ini TIDAK AKAN BEKERJA tanpa backend
+        //     function performDiscountCheck() {
+        //         const promoCode = promoInput.value;
+        //         const referralCode = referralInput.value;
+        //         const originalPrice = 85000; // Harga statis untuk demo ini
+        //         const csrfToken = ''; // Tidak ada CSRF token di HTML statis
+
+        //         checkBtn.textContent = 'Mengecek...';
+        //         checkBtn.disabled = true;
+
+        //         // Anda akan membutuhkan server backend untuk ini
+        //         // fetch('/check-discounts', { ... })
+        //         // Untuk demo statis, kita hanya akan set nilai statis
+        //         setTimeout(() => {
+        //             let discountAmount = 0;
+        //             if (promoCode === 'UTBKDISKON') { // Contoh kode promo dummy
+        //                 discountAmount = 10000;
+        //                 showModalAlert('Kode promo UTBK berhasil diterapkan!', 'Berhasil', 'success');
+        //             } else if (referralCode === 'REFERRALMABA') { // Contoh kode referral dummy
+        //                 discountAmount = 5000;
+        //                 showModalAlert('Kode referral berhasil diterapkan!', 'Berhasil', 'success');
+        //             } else if (promoCode || referralCode) {
+        //                 showModalAlert('Kode tidak valid atau tidak ada diskon.', 'Gagal', 'error');
+        //             }
+
+        //             const finalPrice = originalPrice - discountAmount;
+        //             document.getElementById('discount-display').textContent = `- Rp ${discountAmount.toLocaleString('id-ID')}`;
+        //             document.getElementById('total-price-display').textContent = `Rp ${finalPrice.toLocaleString('id-ID')}`;
+
+        //             checkBtn.textContent = 'Terapkan Kode (Tidak Aktif)';
+        //             checkBtn.disabled = false;
+        //         }, 1000);
+        //     }
+
+        //     // checkBtn.addEventListener('click', performDiscountCheck);
+        // });
+      </script>
+    </div>
+  </body>
+</html>

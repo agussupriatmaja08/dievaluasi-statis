@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id" class="overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Privat - diEvaluasi</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <header
+        class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full">
+        <div class="container mx-auto flex items-center justify-between py-2 px-6">
+            <a href="/">
+                <img src="./dist/assets/static/images/eval/logo.png" alt="logo" class="h-15 w-auto ml-16">
+            </a>
+
+            <div class="flex-1 flex justify-center">
+                <nav class="hidden md:flex space-x-6 text-gray-800">
+                    <a href="/" class="hover:text-orange-500">Beranda</a>
+                    <a href="/#promo" onclick="scrollToSection('promo', false, event)" class="hover:text-orange-500">Our Promo</a>
+                    <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
+                    <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
+                    <a href="/#faq" onclick="scrollToSection('faq', false, event)" class="hover:text-orange-500">FAQ</a>
+                </nav>
+            </div>
+
+            <a href="/login.html"
+                class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16">
+                Login →
+            </a>
+
+            <button id="menu-btn" class="block md:hidden text-gray-800 focus:outline-none ml-auto">
+                <svg id="hamburger-icon" class="w-8 h-8 transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+
+                <svg id="close-icon" class="w-8 h-8 hidden transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <div id="mobile-menu"
+        class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40">
+        <div class="flex flex-col items-start py-8 space-y-1">
+            <a href="/"                 class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Beranda</a>
+            <a href="/#promo" onclick="scrollToSection('promo', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Our Promo</a>
+            <a href="/tryout.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Tryout</a>
+            <a href="/privat.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Les Privat</a>
+            <a href="/#faq" onclick="scrollToSection('faq', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">FAQ</a>
+
+            <a href="/login.html"
+                class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto">
+                Login
+            </a>
+        </div>
+    </div>
+
+
+    <section id="beranda" class="bg-white py-0 px-2 md:px-6 lg:px-8 -mt-2">
+        <div class="container mx-auto">
+
+            <div class="flex flex-col items-start md:hidden">
+                <h1 class="text-3xl font-bold text-gray-800 leading-tight mt-8 mx-5">
+                    Les Privat <span class="text-blue-600">Online dan Offline</span> Sesuai Kebutuhanmu
+                </h1>
+                <h1
+                    class="text-md font-bold text-gray-800 mt-2 border-2 border-amber-500 rounded-md px-3 py-1 inline-block mx-5">
+                    Dievaluasi Raih Mimpi
+                </h1>
+                <p class="text-gray-500 mt-2 text-sm mx-5">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                </p>
+                <a href="#langkah-belajar"
+                    class="mt-4 bg-orange-500 text-lg text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mx-5">
+                    Lihat Pilihan Sesi
+                </a>
+
+                <div class="w-full flex justify-center mt-5 px-4 md:hidden">
+                    <img src="./dist/assets/static/images/eval/landing/2girl.png" alt="Hero Image"
+                        class="w-full h-[280px] object-cover">
+                </div>
+            </div>
+
+            <div class="hidden md:flex flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left ml-15 mb-0 md:mb-0">
+                    <h1 class="text-5xl font-bold text-gray-800 leading-tight">
+                        Les Privat <span class="text-blue-600">Online dan Offline</span> Sesuai Kebutuhanmu
+                    </h1>
+                    <h1
+                        class="text-xl font-bold text-gray-800 leading-tight mt-2 border-2 border-amber-500 rounded-md px-2 py-1 inline-block">
+                        Dievaluasi Raih Mimpi
+                    </h1>
+                    <p class="text-gray-500 mt-2 max-w-lg">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                    <a href="#langkah-belajar"
+                        class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300">
+                        Lihat Pilihan Sesi
+                    </a>
+                </div>
+
+                <div class="md:w-2xl flex justify-center md:justify-end m-5">
+                    <img src="./dist/assets/static/images/eval/landing/2girl.png" alt="Hero Image"
+                        class="w-full max-w-2xl rounded-lg transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="langkah-belajar" class="bg-[#eaf4fc] py-16 px-6 md:px-20">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold">
+                Langkah Mudah <span class="text-orange-500">Belajar Disini</span>
+            </h2>
+            <p class="text-gray-600 max-w-xl mx-auto mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+            </p>
+            <div class="mt-6 inline-flex bg-white rounded-full shadow-md">
+                <button id="onlineBtn"
+                    class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold text-sm focus:outline-none transition-all">
+                    Sesi Online
+                </button>
+                <button id="offlineBtn"
+                    class="px-6 py-2 text-gray-600 font-semibold rounded-full text-sm focus:outline-none transition-all">
+                    Sesi Offline
+                </button>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+            <div class="relative w-full md:w-1/2 flex justify-center">
+                <div class="relative inline-block">
+                    <img id="sessionImage" src="./dist/assets/static/images/eval/landing/agusyuda.png"
+                        alt="Siswa Belajar" class="rounded-[30px] w-full max-w-xl object-cover z-10 relative -ml-10" />
+                    <div class="absolute inset-0 animate-pulse"></div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 md:p-10 rounded-[20px] shadow-md w-full md:w-1/2 max-w-md">
+                <h3 id="sessionTitle" class="text-lg md:text-xl font-semibold mb-2">
+                    Keunggulan Pada <span class="text-blue-600">Privat Sesi Online</span>
+                </h3>
+                <hr class="border-dashed border-orange-400 border-t-2 w-1/3 mb-4" />
+                <p id="sessionDesc1" class="text-gray-600 mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+                </p>
+                <p id="sessionDesc2" class="text-gray-600 mb-6">
+                    Belajar fleksibel dari mana saja dengan akses 24/7. Dapatkan materi terupdate langsung dari tutor berpengalaman.
+                </p>
+                <a id="sessionButton" href="/privat-online.html"
+                    class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full">
+                    Cari Sesi Online
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const onlineBtn = document.getElementById('onlineBtn');
+        const offlineBtn = document.getElementById('offlineBtn');
+        const sessionImage = document.getElementById('sessionImage');
+        const sessionTitle = document.getElementById('sessionTitle');
+        const sessionDesc1 = document.getElementById('sessionDesc1');
+        const sessionDesc2 = document.getElementById('sessionDesc2');
+        const sessionButton = document.getElementById('sessionButton');
+
+        // Online session content
+        const onlineContent = {
+            image: "./dist/assets/static/images/eval/landing/agusyuda.png",
+            title: "Keunggulan Pada <span class='text-blue-600'>Privat Sesi Online</span>",
+            desc1: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+            desc2: "Belajar fleksibel dari mana saja dengan akses 24/7. Dapatkan materi terupdate langsung dari tutor berpengalaman.",
+            buttonText: "Cari Sesi Online",
+            buttonLink: "/privat-online.html", // Link ke halaman detail sesi online
+            buttonColor: "bg-blue-600 hover:bg-blue-700"
+        };
+
+        // Offline session content
+        const offlineContent = {
+            image: "./dist/assets/static/images/eval/landing/offline-session.png", // Ganti dengan gambar sesi offline yang relevan
+            title: "Keunggulan Pada <span class='text-green-600'>Privat Sesi Offline</span>",
+            desc1: "Interaksi langsung dengan tutor dan teman belajar. Suasana belajar yang lebih fokus dan kondusif.",
+            desc2: "Praktik langsung dengan peralatan lengkap di tempat belajar kami. Jadwal reguler untuk disiplin belajar.",
+            buttonText: "Cari Sesi Offline",
+            buttonLink: "/privat-offline.html", // Link ke halaman detail sesi offline
+            buttonColor: "bg-green-600 hover:bg-green-700"
+        };
+
+        // Switch to online session
+        function showOnline() {
+            onlineBtn.classList.add('bg-blue-600', 'text-white');
+            onlineBtn.classList.remove('text-gray-600');
+            offlineBtn.classList.remove('bg-green-600', 'text-white'); // Hapus warna hijau jika beralih ke online
+            offlineBtn.classList.add('text-gray-600');
+
+            sessionImage.src = onlineContent.image;
+            sessionTitle.innerHTML = onlineContent.title;
+            sessionDesc1.textContent = onlineContent.desc1;
+            sessionDesc2.textContent = onlineContent.desc2;
+            sessionButton.textContent = onlineContent.buttonText;
+            sessionButton.href = onlineContent.buttonLink;
+            // Pastikan class tombol di-reset sebelum menambah yang baru
+            sessionButton.className = `block text-center ${onlineContent.buttonColor} text-white font-semibold py-3 px-6 rounded-full`;
+        }
+
+        // Switch to offline session
+        function showOffline() {
+            offlineBtn.classList.add('bg-green-600', 'text-white');
+            offlineBtn.classList.remove('text-gray-600');
+            onlineBtn.classList.remove('bg-blue-600', 'text-white'); // Hapus warna biru jika beralih ke offline
+            onlineBtn.classList.add('text-gray-600');
+
+            sessionImage.src = offlineContent.image;
+            sessionTitle.innerHTML = offlineContent.title;
+            sessionDesc1.textContent = offlineContent.desc1;
+            sessionDesc2.textContent = offlineContent.desc2;
+            sessionButton.textContent = offlineContent.buttonText;
+            sessionButton.href = offlineContent.buttonLink;
+            sessionButton.className = `block text-center ${offlineContent.buttonColor} text-white font-semibold py-3 px-6 rounded-full`;
+        }
+
+        // Event listeners
+        onlineBtn.addEventListener('click', showOnline);
+        offlineBtn.addEventListener('click', showOffline);
+
+        // Initialize with online content
+        showOnline();
+    });
+    </script>
+
+    <section id="dosen" class="scroll-margin-top:100px bg-white py-12 px-4 md:px-8 text-center md:mx-16"
+        data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            Belajar Privat Dengan <span class="text-orange-600">Mentor terbaik</span>
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-xl mx-auto">
+            Temukan mentor berpengalaman siap membimbing Anda meraih prestasi akademik terbaik.
+        </p>
+
+        <div class="swiper-container overflow-hidden max-w-full">
+            <div id="mentorCards" class="swiper-wrapper my-5">
+                </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <template id="mentorCardTemplate">
+        <div class="swiper-slide">
+            <div class="text-center bg-white shadow-lg rounded-2xl p-6 h-full flex flex-col">
+                <img class="mx-auto w-40 h-40 object-cover mb-4 rounded-full border-4 border-blue-100 mentor-image"
+                    alt="Mentor">
+                <h3 class="font-bold text-gray-800 text-xl mentor-name">Nama Mentor</h3>
+                <p class="text-blue-600 mb-2 mentor-specialization">Spesialisasi Mentor</p>
+                <p class="text-gray-500 mb-4 text-sm mentor-university">Universitas Mentor</p>
+
+                <div class="mb-4 text-left flex-grow mentor-experience">
+                    <ul class="space-y-2">
+                        </ul>
+                </div>
+
+                <button
+                    class="mt-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-full text-sm transition-colors">
+                    Overview Profile
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <script>
+    // Data Mentor
+    const mentors = [
+        {
+            id: 1,
+            name: "Miss Meta",
+            image: "./dist/assets/static/images/eval/meta.png", // Jalur gambar yang benar
+            specialization: "Mentor Privat Matematika",
+            university: "Udayana University",
+            experience: [
+                "5+ tahun pengalaman",
+                "Spesialis Kalkulus",
+                "100+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 2,
+            name: "Mr Deepsek",
+            image: "./dist/assets/static/images/eval/deepseek.png", // Jalur gambar yang benar
+            specialization: "Mentor Privat Fisika",
+            university: "Stanford University",
+            experience: [
+                "8+ tahun pengalaman",
+                "Spesialis Mekanika",
+                "200+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 3,
+            name: "Miss Sasa",
+            image: "./dist/assets/static/images/eval/sasa.png", // Jalur gambar yang benar
+            specialization: "Mentor Privat Kimia",
+            university: "Harvard University",
+            experience: [
+                "6+ tahun pengalaman",
+                "Spesialis Organik",
+                "150+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 4,
+            name: "Mr GPT",
+            image: "./dist/assets/static/images/eval/gpt.png", // Jalur gambar yang benar
+            specialization: "Mentor Privat Bahasa",
+            university: "Indonesia University",
+            experience: [
+                "10+ tahun pengalaman",
+                "Spesialis Inggris",
+                "300+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 5,
+            name: "Mr Code",
+            image: "./dist/assets/static/images/eval/5.jpg", // Jalur gambar placeholder, sesuaikan jika ada gambar asli
+            specialization: "Mentor Pemrograman",
+            university: "MIT",
+            experience: [
+                "7+ tahun pengalaman",
+                "Spesialis Python & JavaScript",
+                "250+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 6,
+            name: "Miss Data",
+            image: "./dist/assets/static/images/eval/6.jpg", // Jalur gambar placeholder, sesuaikan jika ada gambar asli
+            specialization: "Mentor Data Science",
+            university: "Cambridge University",
+            experience: [
+                "9+ tahun pengalaman",
+                "Spesialis Machine Learning",
+                "180+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 7,
+            name: "Mr Design",
+            image: "./dist/assets/static/images/eval/7.jpg", // Jalur gambar placeholder, sesuaikan jika ada gambar asli
+            specialization: "Mentor Desain Grafis",
+            university: "Art Center College",
+            experience: [
+                "12+ tahun pengalaman",
+                "Spesialis UI/UX",
+                "400+ siswa dibimbing"
+            ]
+        },
+        {
+            id: 8,
+            name: "Miss Business",
+            image: "./dist/assets/static/images/eval/8.jpg", // Jalur gambar placeholder, sesuaikan jika ada gambar asli
+            specialization: "Mentor Bisnis",
+            university: "Wharton School",
+            experience: [
+                "15+ tahun pengalaman",
+                "Spesialis Startup",
+                "500+ siswa dibimbing"
+            ]
+        }
+    ];
+
+    // Generate cards from template
+    document.addEventListener('DOMContentLoaded', function() {
+        const mentorCardsContainer = document.getElementById('mentorCards');
+        const template = document.getElementById('mentorCardTemplate');
+
+        mentors.forEach(mentor => {
+            const card = template.content.cloneNode(true);
+
+            // Fill in mentor data
+            card.querySelector('.mentor-image').src = mentor.image;
+            card.querySelector('.mentor-image').alt = mentor.name;
+            card.querySelector('.mentor-name').textContent = mentor.name;
+            card.querySelector('.mentor-specialization').textContent = mentor.specialization;
+            card.querySelector('.mentor-university').textContent = mentor.university;
+
+            // Add experience items
+            const experienceList = card.querySelector('.mentor-experience ul');
+            experienceList.innerHTML = ''; // Clear template placeholders
+
+            mentor.experience.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center';
+                li.innerHTML = `
+                <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-600 text-sm">${item}</span>
+                `;
+                experienceList.appendChild(li);
+            });
+
+            mentorCardsContainer.appendChild(card);
+        });
+
+        // Initialize Swiper after cards are generated
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1.2,
+            spaceBetween: 10,
+            loop: true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                }
+            }
+        });
+    });
+    </script>
+
+
+    <section class="py-20 px-4 bg-gray-50 mb-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Pengalaman Mereka <span
+                        class="text-orange-600">Belajar Privat diEvaluasi</span></h2>
+                <p class="text-gray-600 mt-4">Beberapa testimonial dari pengguna yang telah merasakan manfaatnya</p>
+            </div>
+
+            <div class="overflow-hidden relative -mx-28 mb-10">
+                <div class="relative -mx-28 mb-8">
+                    <div class="flex animate-marquee-right space-x-6 w-max">
+                        <template id="testimonial-private-template">
+                            <div class="w-80 bg-white rounded-xl shadow-lg p-6 border border-gray-100 flex-shrink-0">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <img src="" alt="Avatar" class="avatar w-14 h-14 rounded-full object-cover" />
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900">Nama Pengguna</h4>
+                                        <p class="text-sm text-gray-500">Peran / Instansi</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit.”
+                                </p>
+                            </div>
+                        </template>
+
+                        <script>
+                        const testimonialsContainer1 = document.currentScript.parentElement;
+                        const testimonialDataPrivate = [
+                            {
+                                nama: "Ayu Lestari",
+                                peran: "Mahasiswa",
+                                pesan: "Les privat di sini sangat personal dan efektif! Tutornya sabar dan penjelasannya mudah dimengerti.",
+                                gambar: "./dist/assets/static/images/eval/landing/Mahendra.png"
+                            },
+                            {
+                                nama: "Budi Santoso",
+                                peran: "Dosen",
+                                pesan: "Metode pengajaran privatnya inovatif. Sangat merekomendasikan untuk peningkatan skill.",
+                                gambar: "./dist/assets/static/images/eval/landing/Agus.png"
+                            },
+                            {
+                                nama: "Citra Dewi",
+                                peran: "Kepala Sekolah",
+                                pesan: "Platform ini memberikan fleksibilitas luar biasa untuk les privat, baik online maupun offline.",
+                                gambar: "./dist/assets/static/images/eval/landing/Yuda.png"
+                            },
+                            {
+                                nama: "Dedi Pratama",
+                                peran: "Orang Tua",
+                                pesan: "Anak saya merasa lebih percaya diri setelah mengikuti les privat diEvaluasi.",
+                                gambar: "./dist/assets/static/images/eval/landing/Mahendra.png"
+                            },
+                            {
+                                nama: "Eka Putri",
+                                peran: "Guru",
+                                pesan: "Pengalaman belajar privat yang transformatif. Saya mendapatkan banyak insight baru.",
+                                gambar: "./dist/assets/static/images/eval/landing/Agus.png"
+                            }
+                        ];
+                        const testimonialTemplatePrivate = document.getElementById("testimonial-private-template").content;
+
+                        for (let i = 0; i < 3 * testimonialDataPrivate.length; i++) {
+                            const card = testimonialTemplatePrivate.cloneNode(true);
+                            const d = testimonialDataPrivate[i % testimonialDataPrivate.length];
+                            card.querySelector("h4").textContent = d.nama;
+                            card.querySelector("p.text-sm.text-gray-500").textContent = d.peran;
+                            card.querySelector("p.text-gray-600").textContent = "“" + d.pesan + "”";
+                            card.querySelector(".avatar").src = d.gambar;
+                            testimonialsContainer1.appendChild(card);
+                        }
+                        </script>
+                    </div>
+                </div>
+
+                <div class="relative -mx-28">
+                    <div class="flex animate-marquee-left space-x-6 w-max">
+                        <script>
+                        const testimonialsContainer2 = document.currentScript.parentElement;
+                        const reversedDataPrivate = [...testimonialDataPrivate].reverse(); // Reverse for visual variety
+
+                        for (let i = 0; i < 3 * reversedDataPrivate.length; i++) {
+                            const card = testimonialTemplatePrivate.cloneNode(true);
+                            const d = reversedDataPrivate[i % reversedDataPrivate.length];
+                            card.querySelector("h4").textContent = d.nama;
+                            card.querySelector("p.text-sm.text-gray-500").textContent = d.peran;
+                            card.querySelector("p.text-gray-600").textContent = "“" + d.pesan + "”";
+                            card.querySelector(".avatar").src = d.gambar;
+                            testimonialsContainer2.appendChild(card);
+                        }
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        @keyframes marquee-right {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee-left {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .animate-marquee-right {
+            animation: marquee-right 40s linear infinite;
+        }
+
+        .animate-marquee-left {
+            animation: marquee-left 40s linear infinite;
+        }
+
+        /* Pause animation on hover */
+        .animate-marquee-right:hover,
+        .animate-marquee-left:hover {
+            animation-play-state: paused;
+        }
+    </style>
+
+
+    <section id="faq" class="scroll-margin-top: 100px py-16 bg-gray-50">
+        <div class="container mx-auto flex flex-col lg:flex-row items-start gap-12 px-4 lg:px-8">
+            <div class="lg:w-[40%] flex justify-center lg:justify-start md:data-aos-fade-left">
+                <img src="./dist/assets/static/images/eval/landing/faq.png" alt="Maskot"
+                    class="w-130 ml-15h-auto drop-shadow-lg mx-auto lg:mx-0">
+            </div>
+
+            <div class="lg:w-[60%] lg:data-aos-fade-left">
+                <div class="text-center lg:text-left mb-6 ">
+                    <h2 class="text-3xl font-bold text-gray-900">
+                        Frequentely Ask <span class="text-orange-500">Questions</span>
+                    </h2>
+                    <p class="text-gray-600 mt-2 text-center md:text-left px-6 md:px-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                </div>
+
+                <div class="space-y-4 px-4 md:px-0 w-full">
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah Soal Test Dengan Kurikulum Terbaru?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Ya, semua soal telah disesuaikan dengan kurikulum terbaru untuk memastikan Anda siap
+                            menghadapi ujian.
+                        </div>
+                    </details>
+
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah Ada Pembahasan Lengkap?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Tentu, setiap soal dilengkapi dengan pembahasan mendetail agar Anda lebih memahami materi.
+                        </div>
+                    </details>
+
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Berapa Lama Akses Soal Test?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Anda dapat mengakses soal selama 6 bulan setelah mendaftar.
+                        </div>
+                    </details>
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Metode pembayaran apa saja yang tersedia?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Kami menerima berbagai metode pembayaran yang mudah dan aman, termasuk transfer bank
+                            (Virtual Account), e-wallet (GoPay, OVO, Dana, ShopeePay), dan kartu kredit/debit.
+                        </div>
+                    </details>
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah platform ini bisa diakses di handphone?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Tentu. Platform diEvaluasi sepenuhnya responsif. Anda bisa mengakses semua fitur,
+                            mengerjakan tes, dan melihat pembahasan dengan nyaman melalui browser di komputer, tablet,
+                            maupun handphone Anda.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden md:block relative bg-white pb-32 mt-15">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4 md:px-8" data-aos="fade-right">
+            <div class="md:w-1/2 mb-8 md:mb-0 ml-15">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Tunggu Apalagi? Ayoo Daftar Sekarang <br class="hidden md:block" />
+                    Dan Jadilah Yang Terbaik
+                </h2>
+                <p class="text-gray-600 mb-6">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                </p>
+                <a href="#langkah-belajar" onclick="scrollToSection('langkah-belajar', false, event)"
+                    class="bg-orange-500 text-white py-3 px-6 rounded-full hover:bg-orange-600 transition">
+                    Pilih Paket Test Sekarang!
+                </a>
+            </div>
+
+            <div class="md:w-1/2 flex justify-end" data-aos="fade-left">
+                <img src="./dist/assets/static/images/eval/landing/girl2.png" alt="Student"
+                    class="max-w-130 h-auto drop-shadow-lg mr-15" />
+            </div>
+        </div>
+
+        <div class="container mx-auto relative z-20 drop-shadow-2xl mt-5" data-aos="fade-up">
+            <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-50">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                            Ingin Belajar dan Meningkatkan <br class="hidden md:block" />
+                            <span class="text-orange-500">Skill Bahasa Inggris?</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            Ikuti juga kelas bahasa inggris dari diEvaluasi sekarang
+                        </p>
+                    </div>
+                    <div>
+                        <button class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition">
+                            Lihat Informasi Course
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block md:hidden bg-white pb-16">
+        <div class="container mx-auto flex flex-col items-center px-4" data-aos="fade-up">
+
+            <div class="text-center mt-3">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                    Daftar Sekarang <br />
+                    & Jadilah yang Terbaik!
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    Tingkatkan kemampuanmu dengan kursus terbaik dari diEvaluasi.
+                </p>
+                <div class="w-full flex justify-center">
+                    <img src="./dist/assets/static/images/eval/student.png" alt="Student"
+                        class="max-w-xs h-auto drop-shadow-lg" />
+                </div>
+                <a href="#langkah-belajar" onclick="scrollToSection('langkah-belajar', true, event)"
+                    class="bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition mt-10">
+                    Pilih Paket Test
+                </a>
+            </div>
+
+            <div class="container mx-auto mt-6 relative z-20 drop-shadow-2xl px-4 items-center">
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-36 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">
+                        Upgrade <span class="text-orange-500">Skill Bahasa Inggris</span> Kamu!
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Ikuti kelas eksklusif dari diEvaluasi sekarang.
+                    </p>
+                    <button class="bg-blue-600 text-white py-2 px-5 mt-3 rounded-full hover:bg-blue-700 transition mx-auto">
+                        Lihat Course
+                    </button>
+                </div>
+            </div>
+
+    </section>
+
+    <footer class="bg-blue-800 text-white py-12 px-4">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+                <img src="./dist/assets/static/images/eval/logo-white.png" alt="diEvaluasi Logo" class="h-12 mb-4">
+                <p class="text-sm text-blue-200">
+                    diEvaluasi adalah platform belajar online yang membantu Anda mempersiapkan diri untuk berbagai ujian.
+                </p>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-lg mb-4">Tautan Cepat</h4>
+                <ul class="space-y-2 text-blue-200 text-sm">
+                    <li><a href="/" class="hover:text-white">Beranda</a></li>
+                    <li><a href="/tryout.html" class="hover:text-white">Tryout</a></li>
+                    <li><a href="/privat.html" class="hover:text-white">Les Privat</a></li>
+                    <li><a href="/#promo" class="hover:text-white">Promo</a></li>
+                    <li><a href="/#faq" class="hover:text-white">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-lg mb-4">Hubungi Kami</h4>
+                <ul class="space-y-2 text-blue-200 text-sm">
+                    <li><a href="mailto:info@dievaluasi.com" class="hover:text-white">Email: info@dievaluasi.com</a></li>
+                    <li><a href="tel:+628123456789" class="hover:text-white">Telepon: +62 812-3456-789</a></li>
+                    <li><a href="#" class="hover:text-white">Alamat: Jl. Contoh No. 123, Kota Contoh</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-lg mb-4">Ikuti Kami</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-blue-700 mt-8 pt-6 text-center text-blue-300 text-sm">
+            &copy; 2025 diEvaluasi. All rights reserved.
+        </div>
+    </footer>
+
+
+</body>
+
+<script>
+    AOS.init({
+        duration: 800, // Durasi animasi (ms)
+        once: true // Animasi muncul sekali saja
+    });
+
+    // JavaScript untuk Mobile Menu (dari header statis)
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    menuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+            mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+            hamburgerIcon.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
+        } else {
+            mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    });
+
+    // Tutup menu jika klik di luar menu
+    window.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add("-translate-y-full");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    });
+
+    // JavaScript untuk ScrollToSection (dari header statis)
+    function scrollToSection(id, isMobile = false, event = null) {
+        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+        const section = document.getElementById(id);
+        if (section) {
+            const offset = (isMobile ? 60 : 80); // Contoh: 60px untuk mobile, 80px untuk desktop
+            const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+
+            // Tutup menu mobile jika sedang dibuka
+            if (isMobile) {
+                mobileMenu.classList.add("-translate-y-full");
+                hamburgerIcon.classList.remove("hidden");
+                closeIcon.classList.add("hidden");
+            }
+        }
+    }
+</script>
+
+</html>

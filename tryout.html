@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id" class="overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diEvaluasi</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <header
+        class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full">
+        <div class="container mx-auto flex items-center justify-between py-2 px-6">
+            <a href="/">
+                <img src="./dist/assets/static/images/eval/logo.png" alt="logo" class="h-15 w-auto ml-16">
+            </a>
+
+            <div class="flex-1 flex justify-center">
+                <nav class="hidden md:flex space-x-6 text-gray-800">
+                    <a href="/" class="hover:text-orange-500">Beranda</a>
+                    <a href="#promo" onclick="scrollToSection('promo', false, event)" class="hover:text-orange-500">Our Promo</a>
+                    <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
+                    <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
+                    <a href="#faq" onclick="scrollToSection('faq', false, event)" class="hover:text-orange-500">FAQ</a>
+                </nav>
+            </div>
+
+            <a href="/login.html"
+                class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16">
+                Login →
+            </a>
+
+            <button id="menu-btn" class="block md:hidden text-gray-800 focus:outline-none ml-auto">
+                <svg id="hamburger-icon" class="w-8 h-8 transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+
+                <svg id="close-icon" class="w-8 h-8 hidden transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <div id="mobile-menu"
+        class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40">
+        <div class="flex flex-col items-start py-8 space-y-1">
+            <a href="/" onclick="scrollToSection('beranda', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Beranda</a>
+            <a href="#promo" onclick="scrollToSection('promo', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Our Promo</a>
+            <a href="/tryout.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Tryout</a>
+            <a href="/privat.html" class="block py-2 text-gray-800 hover:text-orange-500 pl-8">Les Privat</a>
+            <a href="#faq" onclick="scrollToSection('faq', true, event)"
+                class="block py-2 text-gray-800 hover:text-orange-500 pl-8">FAQ</a>
+
+            <a href="/login.html"
+                class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto">
+                Login
+            </a>
+        </div>
+    </div>
+
+
+    <section id="beranda" class="bg-[#ECF4F9] py-0 px-2 md:px-6 lg:px-8 -mt-2">
+        <div class="container mx-auto">
+
+            <div class="flex flex-col items-start md:hidden">
+                <h1 class="text-3xl font-bold text-gray-800 leading-tight mt-8 mx-5">
+                    Bersiap Hadapi <span class="text-blue-600">Tryout Anda</span> Bersama Kami
+                </h1>
+                <h1
+                    class="text-md font-bold text-gray-800 mt-2 border-2 border-amber-500 rounded-md px-3 py-1 inline-block mx-5">
+                    Dievaluasi Raih Mimpi
+                </h1>
+                <p class="text-gray-500 mt-2 text-sm mx-5">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                </p>
+                <a href="#promo" onclick="scrollToSection('promo', true, event)"
+                    class="mt-4 bg-orange-500 text-lg text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mx-5">
+                    Lihat Promo
+                </a>
+
+                <div class="w-full flex justify-center mt-5 px-4 md:hidden">
+                    <img src="./dist/assets/static/images/eval/landing/hero.png" alt="Hero Image"
+                        class="w-full h-[280px] object-cover">
+                </div>
+            </div>
+
+            <div class="hidden md:flex flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left ml-15 mb-0 md:mb-0">
+                    <h1 class="text-5xl font-bold text-gray-800 leading-tight">
+                        Bersiap Hadapi <span class="text-blue-600">Tryout Anda</span> Bersama Kami
+                    </h1>
+                    <h1
+                        class="text-xl font-bold text-gray-800 leading-tight mt-2 border-2 border-amber-500 rounded-md px-2 py-1 inline-block">
+                        Dievaluasi Raih Mimpi
+                    </h1>
+                    <p class="text-gray-500 mt-2 max-w-lg">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                    <a href="#promo" onclick="scrollToSection('promo', false, event)"
+                        class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300">
+                        Lihat Promo
+                    </a>
+                </div>
+
+                <div class="md:w-2xl flex justify-center md:justify-end m-5">
+                    <img src="./dist/assets/static/images/eval/landing/hero.png" alt="Hero Image"
+                        class="w-full max-w-2xl rounded-lg transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+  
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1.2, // Mobile: Menampilkan 3 card dengan samping setengah
+            spaceBetween: 10,
+            loop: true, // Infinite loop
+            centeredSlides: true, // Hanya untuk mobile
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 4, // Desktop: Tampilkan 4 card penuh tanpa efek centering
+                    spaceBetween: 30,
+                    centeredSlides: false, // Nonaktifkan centering di desktop agar card tidak terpotong
+                }
+            }
+        });
+    </script>
+
+    <section class="py-16 bg-white hidden md:block">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-900">Dapatkan Akses Test Dengan</h2>
+            <p class="text-orange-500 text-xl font-semibold">Berbagai Kategori</p>
+        </div>
+
+        <div class="container mx-auto grid grid-cols-1 gap-12">
+            <div class="flex flex-col md:flex-row items-center mx-30" data-aos="fade-right">
+                <div class="flex-[0.6] mb-2 md:mb-0">
+                    <h3 class="text-4xl font-bold mb-2">Test SNBT</h3>
+                    <p class="text-gray-600 mb-4 mr-20 text-xl">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud .
+                    </p>
+                </div>
+                <img src="./dist/assets/static/images/eval/snbp.png" alt="Test SNBP"
+                    class="flex-[0.4] transition-transform duration-300 hover:scale-105 w-30 h-auto mr-20">
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse items-center ml-10" data-aos="fade-left">
+                <div class="flex-[0.6] mb-2 md:mb-0">
+                    <h3 class="text-4xl font-bold mb-2">Test Mandiri</h3>
+                    <p class="text-gray-600 text-xl mb-4 mr-30">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <img src="./dist/assets/static/images/eval/mandiri.png" alt="Test Mandiri"
+                    class="flex-[0.4] transition-transform duration-300 hover:scale-105 w-20 h-auto mr-30">
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center ml-30" data-aos="fade-right">
+                <div class="flex-[0.6] mb-2 md:mb-0">
+                    <h3 class="text-4xl font-bold mb-2">Test SKD</h3>
+                    <p class="text-gray-600 mb-4 mr-20 text-xl">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud .
+                    </p>
+                </div>
+                <img src="./dist/assets/static/images/eval/skd.png" alt="Test SKD"
+                    class="flex-[0.4] transition-transform duration-300 hover:scale-105 w-30 h-auto mr-20">
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse items-center ml-10" data-aos="fade-left">
+                <div class="flex-[0.6] mb-2 md:mb-0">
+                    <h3 class="text-4xl font-bold mb-2">BUMN</h3>
+                    <p class="text-gray-600 text-xl mb-4 mr-30">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <img src="./dist/assets/static/images/eval/bumn.png" alt="Test BUMN"
+                    class="flex-[0.4] transition-transform duration-300 hover:scale-105 w-20 h-auto mr-30">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white md:hidden">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Dapatkan Akses Test Dengan</h2>
+            <p class="text-orange-500 text-xl font-semibold">Berbagai Kategori</p>
+        </div>
+
+        <div class="container mx-auto grid grid-cols-1 gap-12">
+            <div class="flex flex-col items-center">
+                <img src="./dist/assets/static/images/eval/snbp.png" alt="Test SNBP" class="w-full h-auto">
+                <div class="mt-4 px-6 text-left mx-2">
+                    <h3 class="text-2xl font-bold mb-2">Test SNBT</h3>
+                    <p class="text-gray-600 text-lg text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit...</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <img src="./dist/assets/static/images/eval/mandiri.png" alt="Test Mandiri"
+                    class="w-full h-auto">
+                <div class="mt-4 px-6 text-left mx-2">
+                    <h3 class="text-2xl font-bold mb-2">Test Mandiri</h3>
+                    <p class="text-gray-600 text-lg text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit...</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <img src="./dist/assets/static/images/eval/skd.png" alt="Test SKD" class="w-full h-auto">
+                <div class="mt-4 px-6 text-left m">
+                    <h3 class="text-2xl font-bold mbx-2-2">Test SKD</h3>
+                    <p class="text-gray-600 text-lg text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit...</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <img src="./dist/assets/static/images/eval/bumn.png" alt="Test BUMN" class="w-full h-auto">
+                <div class="mt-4 px-6 text-left mx-2">
+                    <h3 class="text-2xl font-bold mb-2">BUMN</h3>
+                    <p class="text-gray-600 text-lg text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-16 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">
+            Pilih Paket <span class="text-orange-500">TryOut Sesuai Kebutuhanmu</span>
+        </h2>
+        <p class="text-gray-500 mb-10 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                <img src="./dist/assets/static/images/utbk.jpg" alt="TryOut UTBK"
+                    class="w-full object-cover h-40">
+                <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    📝 TryOut SNBT
+                </div>
+                <div class="p-4 text-left">
+                    <h3 class="font-semibold text-sm mb-2">Paket TryOut UTBK SNBT dievaluasi</h3>
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">50%</span>
+                        <span class="text-sm text-gray-600">Rp85.000/tahun</span>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-4">
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Dapatkan seluruh fasilitas</li>
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Latihan dengan bab dan jumlah soal sesuai keinginan di Drill soal</li>
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Tryout setiap minggu</li>
+                    </ul>
+                    <a href="/detail-tryout-utbk.html" class="w-full bg-blue-600 text-white rounded-full py-2 text-sm font-semibold hover:bg-blue-700 block text-center">
+                        Lihat Detail
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                <img src="./dist/assets/static/images/skd.jpg" alt="TryOut SKD"
+                    class="w-full object-cover h-40">
+                <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    📝 TryOut SKD CPNS
+                </div>
+                <div class="p-4 text-left">
+                    <h3 class="font-semibold text-sm mb-2">Paket TryOut SKD CPNS 2025 dievaluasi</h3>
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">50%</span>
+                        <span class="text-sm text-gray-600">Rp75.000/tahun</span>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-4">
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Dapatkan seluruh fasilitas</li>
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Latihan dengan bab dan jumlah soal sesuai keinginan di Drill soal</li>
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Tryout setiap minggu</li>
+                    </ul>
+                    <a href="/detail-tryout-skd.html" class="w-full bg-blue-600 text-white rounded-full py-2 text-sm font-semibold hover:bg-blue-700 block text-center">
+                        Lihat Detail
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                <img src="./dist/assets/static/images/mandiri.jpg" alt="TryOut Mandiri"
+                    class="w-full object-cover h-40">
+                <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    📝 TryOut Mandiri
+                </div>
+                <div class="p-4 text-left">
+                    <h3 class="font-semibold text-sm mb-2">Paket TryOut Seleksi Mandiri dievaluasi</h3>
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">50%</span>
+                        <span class="text-sm text-gray-600">Rp60.000/tahun</span>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-4">
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Dapatkan seluruh fasilitas</li>
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Latihan dengan bab dan jumlah soal sesuai keinginan di Drill soal</li>
+                        <li class="flex items-start gap-2"><span class="text-green-500">✔️</span> Tryout setiap minggu</li>
+                    </ul>
+                    <a href="/detail-tryout-mandiri.html" class="w-full bg-blue-600 text-white rounded-full py-2 text-sm font-semibold hover:bg-blue-700 block text-center">
+                        Lihat Detail
+                    </a>
+                </div>
+            </div>
+            </div>
+
+        <p class="text-gray-500 mt-12 mb-4 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+        </p>
+
+        <button class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold text-sm hover:bg-blue-700">
+            Lihat Semua
+        </button>
+    </section>
+
+    <section class="py-20 px-4 bg-gray-50 mb-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Apa Kata Mereka?</h2>
+                <p class="text-gray-600 mt-4">Beberapa testimonial dari pengguna yang telah merasakan manfaatnya</p>
+            </div>
+
+            <div class="overflow-hidden relative -mx-28">
+                <div class="flex animate-marquee space-x-6 w-max">
+                    <template id="testimonial-template">
+                        <div class="w-80 bg-white rounded-xl shadow-lg p-6 border border-gray-100 flex-shrink-0 mb-10">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="" alt="Avatar" class="testimonial-img w-14 h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900">Nama Pengguna</h4>
+                                    <p class="text-sm text-gray-500">Peran / Instansi</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.”
+                            </p>
+                        </div>
+                    </template>
+
+                    <script>
+                    // Mengambil elemen parent dari script ini untuk menambahkan card
+                    const testimonialsContainer = document.currentScript.parentElement;
+                    const testimonialData = [
+                        {
+                            nama: "Komang Mahendra",
+                            peran: "Mahasiswa",
+                            pesan: "Sistem ini sangat membantu saya dalam memilih tempat belajar terbaik!",
+                            gambar: "./dist/assets/static/images/eval/landing/Mahendra.png" // Jalur gambar yang benar
+                        },
+                        {
+                            nama: "Agus Supriatmaja",
+                            peran: "Mahasiswa",
+                            pesan: "Pendekatannya sistematis dan mudah digunakan dalam pengambilan keputusan.",
+                            gambar: "./dist/assets/static/images/eval/landing/Agus.png" // Jalur gambar yang benar
+                        },
+                        {
+                            nama: "Yuda Pratama",
+                            peran: "Mahasiswa",
+                            pesan: "Visualisasi dan rekomendasinya akurat, sangat cocok untuk perencanaan sekolah.",
+                            gambar: "./dist/assets/static/images/eval/landing/Yuda.png" // Jalur gambar yang benar
+                        },
+                        {
+                            nama: "Bagas Atmaja",
+                            peran: "Mahasiswa",
+                            pesan: "Visualisasi dan rekomendasinya akurat, sangat cocok untuk perencanaan sekolah.",
+                            gambar: "./dist/assets/static/images/eval/landing/Yuda.png" // Jalur gambar yang benar (duplicate for demo)
+                        }
+                    ];
+
+                    const testimonialTemplate = document.getElementById("testimonial-template").content;
+                    // Duplikasi data beberapa kali untuk efek marquee yang mulus
+                    for (let i = 0; i < 3 * testimonialData.length; i++) { // Melipatgandakan 3x
+                        const card = testimonialTemplate.cloneNode(true);
+                        const d = testimonialData[i % testimonialData.length]; // Ambil data dari array asli
+                        card.querySelector("h4").textContent = d.nama;
+                        card.querySelector("p.text-sm.text-gray-500").textContent = d.peran;
+                        card.querySelector("p.text-gray-600").textContent = "“" + d.pesan + "”";
+                        card.querySelector(".testimonial-img").src = d.gambar; // Set jalur gambar
+                        testimonialsContainer.appendChild(card);
+                    }
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%); /* Menggeser 50% dari lebar total untuk loop mulus */
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 40s linear infinite; /* Sesuaikan durasi jika perlu */
+        }
+    </style>
+
+    <section id="faq" class="scroll-margin-top: 100px py-16 bg-gray-50">
+        <div class="container mx-auto flex flex-col lg:flex-row items-start gap-12 px-4 lg:px-8">
+            <div class="lg:w-[40%] flex justify-center lg:justify-start md:data-aos-fade-left">
+                <img src="./dist/assets/static/images/eval/landing/faq2.png" alt="Maskot"
+                    class="w-130 ml-15h-auto drop-shadow-lg mx-auto lg:mx-0">
+            </div>
+
+            <div class="lg:w-[60%] lg:data-aos-fade-left">
+                <div class="text-center lg:text-left mb-6 ">
+                    <h2 class="text-3xl font-bold text-gray-900">
+                        Frequentely Ask <span class="text-orange-500">Questions</span>
+                    </h2>
+                    <p class="text-gray-600 mt-2 text-center md:text-left px-6 md:px-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                </div>
+
+                <div class="space-y-4 px-4 md:px-0 w-full">
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah Soal Test Dengan Kurikulum Terbaru?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Ya, semua soal telah disesuaikan dengan kurikulum terbaru untuk memastikan Anda siap
+                            menghadapi ujian.
+                        </div>
+                    </details>
+
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah Ada Pembahasan Lengkap?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Tentu, setiap soal dilengkapi dengan pembahasan mendetail agar Anda lebih memahami materi.
+                        </div>
+                    </details>
+
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Berapa Lama Akses Soal Test?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Anda dapat mengakses soal selama 6 bulan setelah mendaftar.
+                        </div>
+                    </details>
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Metode pembayaran apa saja yang tersedia?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Kami menerima berbagai metode pembayaran yang mudah dan aman, termasuk transfer bank
+                            (Virtual Account), e-wallet (GoPay, OVO, Dana, ShopeePay), dan kartu kredit/debit.
+                        </div>
+                    </details>
+                    <details class="group border rounded-lg overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-gray-100">
+                            <span>Apakah platform ini bisa diakses di handphone?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="p-4 bg-white text-gray-700">
+                            Tentu. Platform diEvaluasi sepenuhnya responsif. Anda bisa mengakses semua fitur,
+                            mengerjakan tes, dan melihat pembahasan dengan nyaman melalui browser di komputer, tablet,
+                            maupun handphone Anda.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden md:block relative bg-white pb-32 mt-15">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4 md:px-8" data-aos="fade-right">
+            <div class="md:w-1/2 mb-8 md:mb-0 ml-15">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Tunggu Apalagi? Ayoo Daftar Sekarang <br class="hidden md:block" />
+                    Dan Jadilah Yang Terbaik
+                </h2>
+                <p class="text-gray-600 mb-6">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                </p>
+                <a href="#promo" onclick="scrollToSection('promo', false, event)"
+                    class="bg-orange-500 text-white py-3 px-6 rounded-full hover:bg-orange-600 transition">
+                    Pilih Paket Test Sekarang!
+                </a>
+            </div>
+
+            <div class="md:w-1/2 flex justify-end" data-aos="fade-left">
+                <img src="./dist/assets/static/images/eval/landing/girl1.png" alt="Student"
+                    class="max-w-130 h-auto drop-shadow-lg mr-15" />
+            </div>
+        </div>
+
+        <div class="container mx-auto relative z-20 drop-shadow-2xl mt-5" data-aos="fade-up">
+            <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-50">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                            Ingin Belajar dan Meningkatkan <br class="hidden md:block" />
+                            <span class="text-orange-500">Skill Bahasa Inggris?</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            Ikuti juga kelas bahasa inggris dari diEvaluasi sekarang
+                        </p>
+                    </div>
+                    <div>
+                        <button class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition">
+                            Lihat Informasi Course
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block md:hidden bg-white pb-16">
+        <div class="container mx-auto flex flex-col items-center px-4" data-aos="fade-up">
+
+            <div class="text-center mt-3">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                    Daftar Sekarang <br />
+                    & Jadilah yang Terbaik!
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    Tingkatkan kemampuanmu dengan kursus terbaik dari diEvaluasi.
+                </p>
+                <div class="w-full flex justify-center">
+                    <img src="./dist/assets/static/images/eval/student.png" alt="Student"
+                        class="max-w-xs h-auto drop-shadow-lg" />
+                </div>
+                <a href="#promo" onclick="scrollToSection('promo', true, event)"
+                    class="bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition mt-10">
+                    Pilih Paket Test
+                </a>
+            </div>
+
+            <div class="container mx-auto mt-6 relative z-20 drop-shadow-2xl px-4 items-center">
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto -mb-36 text-center">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">
+                        Upgrade <span class="text-orange-500">Skill Bahasa Inggris</span> Kamu!
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Ikuti kelas eksklusif dari diEvaluasi sekarang.
+                    </p>
+                    <button class="bg-blue-600 text-white py-2 px-5 mt-3 rounded-full hover:bg-blue-700 transition mx-auto">
+                        Lihat Course
+                    </button>
+                </div>
+            </div>
+
+    </section>
+
+    <footer class="bg-blue-800 text-white py-12 px-4">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+                <img src="./dist/assets/static/images/eval/logo-white.png" alt="diEvaluasi Logo" class="h-12 mb-4">
+                <p class="text-sm text-blue-200">
+                    diEvaluasi adalah platform belajar online yang membantu Anda mempersiapkan diri untuk berbagai ujian.
+                </p>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-lg mb-4">Tautan Cepat</h4>
+                <ul class="space-y-2 text-blue-200 text-sm">
+                    <li><a href="/" class="hover:text-white">Beranda</a></li>
+                    <li><a href="/tryout.html" class="hover:text-white">Tryout</a></li>
+                    <li><a href="/privat.html" class="hover:text-white">Les Privat</a></li>
+                    <li><a href="/#promo" class="hover:text-white">Promo</a></li>
+                    <li><a href="/#faq" class="hover:text-white">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-lg mb-4">Hubungi Kami</h4>
+                <ul class="space-y-2 text-blue-200 text-sm">
+                    <li><a href="mailto:info@dievaluasi.com" class="hover:text-white">Email: info@dievaluasi.com</a></li>
+                    <li><a href="tel:+628123456789" class="hover:text-white">Telepon: +62 812-3456-789</a></li>
+                    <li><a href="#" class="hover:text-white">Alamat: Jl. Contoh No. 123, Kota Contoh</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-lg mb-4">Ikuti Kami</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-blue-200 hover:text-white text-2xl"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-blue-700 mt-8 pt-6 text-center text-blue-300 text-sm">
+            &copy; 2025 diEvaluasi. All rights reserved.
+        </div>
+    </footer>
+
+
+</body>
+
+<script>
+    AOS.init({
+        duration: 800, // Durasi animasi (ms)
+        once: true // Animasi muncul sekali saja
+    });
+
+    // JavaScript untuk Mobile Menu (dari header statis)
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    menuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+            mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+            hamburgerIcon.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
+        } else {
+            mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    });
+
+    // Tutup menu jika klik di luar menu
+    window.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add("-translate-y-full");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    });
+
+    // JavaScript untuk ScrollToSection (dari header statis)
+    function scrollToSection(id, isMobile = false, event = null) {
+        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+        const section = document.getElementById(id);
+        if (section) {
+            const offset = (isMobile ? 60 : 80); // Contoh: 60px untuk mobile, 80px untuk desktop
+            const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+
+            // Tutup menu mobile jika sedang dibuka
+            if (isMobile) {
+                mobileMenu.classList.add("-translate-y-full");
+                hamburgerIcon.classList.remove("hidden");
+                closeIcon.classList.add("hidden");
+            }
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail TryOut Seleksi Mandiri - diEvaluasi</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body class="bg-[#ECF4F9] text-gray-800">
+    <header
+      class="bg-white shadow-md border-b-2 border-slate-300 sticky top-0 md:top-0 md:translate-y-0 -translate-y-2 z-50 w-full"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between py-2 px-6"
+      >
+        <a href="/">
+          <img
+            src="./dist/assets/static/images/eval/logo.png"
+            alt="logo"
+            class="h-15 w-auto ml-16"
+          />
+        </a>
+
+        <div class="flex-1 flex justify-center">
+          <nav class="hidden md:flex space-x-6 text-gray-800">
+            <a href="/" class="hover:text-orange-500">Beranda</a>
+            <a
+              href="/"
+              onclick="scrollToSection('promo', false, event)"
+              class="hover:text-orange-500"
+              >Our Promo</a
+            >
+            <a href="/tryout.html" class="hover:text-orange-500">Tryout</a>
+            <a href="/privat.html" class="hover:text-orange-500">Les Privat</a>
+            <a
+              href="/"
+              onclick="scrollToSection('faq', false, event)"
+              class="hover:text-orange-500"
+              >FAQ</a
+            >
+          </nav>
+        </div>
+
+        <a
+          href="/login.html"
+          class="hidden md:block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-orange-600 transition duration-300 mr-16"
+        >
+          Login →
+        </a>
+
+        <button
+          id="menu-btn"
+          class="block md:hidden text-gray-800 focus:outline-none ml-auto"
+        >
+          <svg
+            id="hamburger-icon"
+            class="w-8 h-8 transition-transform duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+
+          <svg
+            id="close-icon"
+            class="w-8 h-8 hidden transition-transform duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed top-14 left-0 w-full h-max bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-40"
+    >
+      <div class="flex flex-col items-start py-8 space-y-1">
+        <a
+          href="/"
+          onclick="scrollToSection('beranda', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Beranda</a
+        >
+        <a
+          href="/"
+          onclick="scrollToSection('promo', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Our Promo</a
+        >
+        <a
+          href="/tryout.html"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Tryout</a
+        >
+        <a
+          href="/privat.html"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >Les Privat</a
+        >
+        <a
+          href="/"
+          onclick="scrollToSection('faq', true, event)"
+          class="block py-2 text-gray-800 hover:text-orange-500 pl-8"
+          >FAQ</a
+        >
+
+        <a
+          href="/login.html"
+          class="block py-3 rounded-xl w-3/4 bg-orange-500 text-white text-center hover:bg-orange-600 transition duration-300 self-center ml-8 mr-auto"
+        >
+          Login
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      menuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+          mobileMenu.classList.remove("-translate-y-full"); // Munculkan menu
+          hamburgerIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        } else {
+          mobileMenu.classList.add("-translate-y-full"); // Sembunyikan menu
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      // Tutup menu jika klik di luar menu
+      window.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add("-translate-y-full");
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+
+      function scrollToSection(id, isMobile = false, event = null) {
+        if (event) event.preventDefault(); // Mencegah kembali ke atas karena href="#"
+
+        const section = document.getElementById(id);
+        if (section) {
+          // Offset untuk header sticky (sesuaikan jika ada header lain di halaman yang berbeda)
+          const offset = isMobile ? 60 : 80; // Contoh: 60px untuk mobile, 80px untuk desktop
+          const elementPosition =
+            section.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // Tutup menu mobile jika sedang dibuka
+          if (isMobile) {
+            mobileMenu.classList.add("-translate-y-full");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+          }
+        }
+      }
+    </script>
+
+    <div class="container mx-auto px-6 py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-6xl mx-auto">
+        <div class="lg:col-span-3">
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200"
+          >
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">
+              Tryout Seleksi Mandiri
+            </h1>
+
+            <div class="flex flex-wrap items-center gap-2 mb-6">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-medium"
+              >
+                🕒 Aktif 3 bulan
+              </span>
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-medium"
+              >
+                💸 Diskon 50% — <span class="ml-1 font-semibold">Rp60.000</span>
+              </span>
+            </div>
+
+            <h2 class="text-lg font-semibold text-blue-600 mb-4">
+              📚 Materi TryOut
+            </h2>
+
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6"
+            >
+              <div
+                class="p-5 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 16v-2m8-8h2m-2 0H4m0 0H2m2 0V4a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V10z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3
+                      class="text-base font-semibold text-gray-900 leading-snug"
+                    >
+                      Tes Potensi Akademik (TPA)
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">40 Soal</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-5 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 rounded-lg bg-green-100 text-green-600 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 16v-2m8-8h2m-2 0H4m0 0H2m2 0V4a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V10z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3
+                      class="text-base font-semibold text-gray-900 leading-snug"
+                    >
+                      Matematika Dasar
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">20 Soal</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-5 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 16v-2m8-8h2m-2 0H4m0 0H2m2 0V4a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V10z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3
+                      class="text-base font-semibold text-gray-900 leading-snug"
+                    >
+                      Bahasa Indonesia
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">20 Soal</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-5 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 rounded-lg bg-yellow-100 text-yellow-600 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 16v-2m8-8h2m-2 0H4m0 0H2m2 0V4a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V10z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3
+                      class="text-base font-semibold text-gray-900 leading-snug"
+                    >
+                      Bahasa Inggris
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">20 Soal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center mt-6">
+              <a
+                href="/checkout-mandiri.html"
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full shadow transition-transform hover:-translate-y-1"
+              >
+                🚀 Beli Sekarang →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 lg:sticky lg:top-20 space-y-6"
+          >
+            <div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">
+                Tentang Paket
+              </h3>
+              <div
+                class="text-sm leading-relaxed text-gray-700 prose max-w-none"
+              >
+                Ini adalah deskripsi detail untuk Tryout Seleksi Mandiri. Paket
+                ini dirancang khusus untuk membantu calon mahasiswa
+                mempersiapkan diri menghadapi ujian masuk jalur mandiri di
+                berbagai perguruan tinggi. Meliputi materi sesuai format ujian
+                mandiri yang umum.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
